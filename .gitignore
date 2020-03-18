@@ -1,0 +1,7 @@
+*.o
+*.gc*
+my_rpg
+unit_tests
+lib/libmy.a
+lib/my/libmy.a
+
