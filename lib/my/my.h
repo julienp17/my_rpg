@@ -14,4 +14,5 @@
     unsigned int my_strlen(char const *str);
 
     char *my_strdup(char const *src);
+    char *my_strdupcat(char const *s1, char const *s2);
 #endif
