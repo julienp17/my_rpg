@@ -7,7 +7,10 @@
 
 CC 			= 	gcc
 
-SRC			=
+SRC			=	my_strcmp.c \
+				my_strlen.c \
+				my_strdup.c \
+				my_puterr.c \
 
 OBJ			=	$(SRC:.c=.o)
 
