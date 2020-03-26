@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include "map.h"
+#include "my.h"
 
 map_t *map_create(void)
 {
@@ -17,7 +18,7 @@ map_t *map_create(void)
         my_puterr("Couldn't allocate memory for map structure.\n");
         return (NULL);
     }
-    map->tileset = NULL;
     map->vertices = NULL;
+    map->tileset = NULL;
     return (map);
 }
