@@ -9,11 +9,13 @@
     #define GAME_H_
 
     #include <SFML/Graphics.h>
+    #include "graphical_def.h"
     #include "assets.h"
+    #include "map.h"
 
     typedef struct game {
         assets_t *assets;
         map_t *map;
-        sfRenderWindow *window;
+        window_t *window;
     } game_t;
 #endif
