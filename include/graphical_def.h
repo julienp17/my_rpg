@@ -11,17 +11,20 @@
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
 
+    #define WIN_BPP                         32
+
     typedef unsigned int                    uint;
     typedef unsigned char                   uchar;
     typedef sfVector2i                      v2i;
     typedef sfVector2u                      v2u;
     typedef sfVector2f                      v2f;
     typedef sfVector3f                      v3f;
+    typedef sfVideoMode                     video_mode;
     typedef sfFont                          font_t;
     typedef sfMusic                         music_t;
     typedef sfSound                         sound_t;
     typedef sfTexture                       texture_t;
-    typedef sfVertexArray                   vertex_array_t;
+    typedef sfVertexArray                   vertex_arr_t;
     typedef sfRenderWindow                  window_t;
 
     #define v2i(x, y)           ((v2i) {(x), (y)})
