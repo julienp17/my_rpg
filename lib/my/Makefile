@@ -9,6 +9,13 @@ CC 			= 	gcc
 
 SRC			=	my_strcmp.c \
 				my_strlen.c \
+				my_atoi.c \
+				my_strtol.c \
+				my_strarr_len.c \
+				my_strarr_free.c \
+				my_count_char.c \
+				my_count_until_sep.c \
+				my_str_to_word_array.c \
 				my_strdup.c \
 				my_strdupcat.c \
 				my_puterr.c \
