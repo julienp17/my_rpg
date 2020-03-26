@@ -10,7 +10,7 @@
 #include "my.h"
 #include "file_reading.h"
 
-dict_t *assets_load_music(void)
+int assets_load_music(assets_t *assets)
 {
     dict_t *musics = NULL;
     music_t *music = NULL;
@@ -20,14 +20,15 @@ dict_t *assets_load_music(void)
 
     dir_path = my_strdupcat(ASSETS_DIR, MUSIC_DIR);
     if (dir_path == NULL)
-        return (NULL);
+        return (-1);
     file_names = get_filenames_in_dir(dir_path);
     if (file_names == NULL)
-        return (NULL);
+        return (-1);
     for (unsigned int i = 0 ; file_names[i] ; i++) {
         file_path = my_strdupcat(dir_path, file_names[i]);
         music = sfMusic_createFromFile(file_path);
         dict_set(&musics, file_names[i], (void *) music);
     }
-    return (musics);
+    assets->musics = musics;
+    return (0);
 }
