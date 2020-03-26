@@ -14,20 +14,35 @@ MAIN_F		=	main.c
 SRC			= 	$(addprefix $(SRC_D), $(SRC_F))
 OBJ 		= 	$(SRC:.c=.o)
 SRC_D 		= 	src/
-SRC_F 		=
+SRC_F 		=	file_reading/get_nb_files_in_dir.c \
+				file_reading/get_filenames_in_dir.c \
+				file_reading/get_file_lines.c \
+				file_reading/get_file_buffer.c \
+				file_reading/get_file_size.c \
+				structures/map/map_load.c \
+				structures/map/map_create.c \
+				structures/map/map_draw.c \
+				structures/map/vertices_load.c \
+				structures/map/tiles_load.c \
+				structures/game/window_create.c \
+				structures/assets/assets_create.c \
+				structures/assets/assets_load_fonts.c \
+				structures/assets/assets_load_music.c \
 
 SRC_UT   	=	$(addprefix $(SRC_UT_D), $(SRC_UT_F))
 OBJ_UT 	 	=	$(SRC_UT:.c=.o)
 SRC_UT_D 	= 	tests/
 SRC_UT_F 	=
 
-INC			= 	-I./include/
+INC			= 	-I./include/ -I./include/structures/
 
 CFLAGS		= 	-W -Wall -Wextra -Werror $(INC) $(LDFLAGS)
 
 DBFLAGS		=	-g -g3 -ggdb
 
-LDFLAGS 	=	-L./lib -lmy -lcsfml-graphics -lcsfml-system -lm
+LDFLAGS 	=	-L./lib -ldict -lmy -lm $(CSFML_FLAGS)
+
+CSFML_FLAGS =	-lcsfml-graphics -lcsfml-system -lcsfml-audio
 
 LDFLAGS_UT	= 	-lcriterion -lgcov --coverage
 
@@ -42,6 +57,7 @@ $(NAME):	makelib $(OBJ) $(OBJ_M)
 
 makelib:
 	make -C ./lib/my/ all
+	make -C ./lib/dict/ all
 
 tests_run: clean $(OBJ) $(OBJ_UT)
 	echo -e "\e[1;32mCompiling $(NAME_UT) binary... \e[0m"
