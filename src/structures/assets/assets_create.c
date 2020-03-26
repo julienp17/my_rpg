@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** MUL_my_rpg_2019
 ** File description:
-** Return a structure containing all the assets of the game
+** Returns a newly allocated assets structure
 */
 
 #include <stdlib.h>
@@ -18,7 +18,7 @@ assets_t *assets_create(void)
         my_puterr("Couldn't allocate memory for assets structure.\n");
         return (NULL);
     }
-    assets->fonts = assets_load_fonts();
-    assets->musics = assets_load_music();
+    assets->fonts = NULL;
+    assets->musics = NULL;
     return (assets);
 }
