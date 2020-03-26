@@ -17,9 +17,14 @@
 
     typedef int tile_t;
     typedef struct map {
-        tile_t ***tilesets;
+        vertex_arr_t *vertices;
+        texture_t *tileset;
     } map_t;
 
-    sfVertexArray *map_load(tile_t **tiles, sfTexture *tileset);
-    tile_t **tiles_load(char const *file_path);
+    map_t *map_create(void);
+    int map_load(map_t *map, char const *map_path, texture_t *tileset);
+    vertex_arr_t *vertices_load(char const *map_path, texture_t *tileset);
+    tile_t **tiles_load(char const *map_path);
+
+    void map_draw(window_t *window, map_t *map);
 #endif
