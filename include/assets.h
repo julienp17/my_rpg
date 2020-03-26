@@ -23,6 +23,7 @@
     } assets_t;
 
     assets_t *assets_create(void);
-    dict_t *assets_load_fonts(void);
-    dict_t *assets_load_music(void);
+    int assets_load(assets_t *assets);
+    int assets_load_fonts(assets_t *assets);
+    int assets_load_music(assets_t *assets);
 #endif
