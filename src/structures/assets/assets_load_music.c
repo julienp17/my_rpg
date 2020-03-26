@@ -13,10 +13,10 @@
 dict_t *assets_load_music(void)
 {
     dict_t *musics = NULL;
+    music_t *music = NULL;
     char *dir_path = NULL;
     char *file_path = NULL;
     char **file_names = NULL;
-    sfMusic *music = NULL;
 
     dir_path = my_strdupcat(ASSETS_DIR, MUSIC_DIR);
     if (dir_path == NULL)

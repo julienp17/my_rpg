@@ -8,6 +8,7 @@
 #ifndef ASSETS_H_
     #define ASSETS_H_
 
+    #include "graphical_def.h"
     #include "dict.h"
 
     #define ASSETS_DIR            "assets/"

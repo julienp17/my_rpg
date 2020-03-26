@@ -11,12 +11,12 @@
 #include "map.h"
 #include "my.h"
 
-static int fill_map(sfVertexArray *map, tile_t **tiles, sfTexture *tileset);
-static int append_tile(sfVertexArray *map, v2u pos, v2i tile);
+static int fill_map(vertex_array_t *map, tile_t **tiles, texture_t *tileset);
+static int append_tile(vertex_array_t *map, v2u pos, v2i tile);
 
-sfVertexArray *map_load(tile_t **tiles, sfTexture *tileset)
+vertex_array_t *map_load(tile_t **tiles, texture_t *tileset)
 {
-    sfVertexArray *map = NULL;
+    vertex_array_t *map = NULL;
 
     map = sfVertexArray_create();
     if (map == NULL) {
@@ -29,7 +29,7 @@ sfVertexArray *map_load(tile_t **tiles, sfTexture *tileset)
     return (map);
 }
 
-static int fill_map(sfVertexArray *map, tile_t **tiles, sfTexture *tileset)
+static int fill_map(vertex_array_t *map, tile_t **tiles, texture_t *tileset)
 {
     int tile_number = 0;
     v2u map_pos;
@@ -51,7 +51,7 @@ static int fill_map(sfVertexArray *map, tile_t **tiles, sfTexture *tileset)
     return (0);
 }
 
-static int append_tile(sfVertexArray *map, v2u pos, v2i tile)
+static int append_tile(vertex_array_t *map, v2u pos, v2i tile)
 {
     sfVertex *qs = malloc(sizeof(sfVertex) * 4);
 

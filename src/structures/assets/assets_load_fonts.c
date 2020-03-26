@@ -13,10 +13,10 @@
 dict_t *assets_load_fonts(void)
 {
     dict_t *fonts = NULL;
+    font_t *font = NULL;
     char *dir_path = NULL;
     char *file_path = NULL;
     char **file_names = NULL;
-    sfFont *font = NULL;
 
     dir_path = my_strdupcat(ASSETS_DIR, FONTS_DIR);
     if (dir_path == NULL)
