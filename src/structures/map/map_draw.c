@@ -15,5 +15,5 @@ void map_draw(window_t *window, map_t *map)
     states.shader = NULL;
     states.transform = sfTransform_Identity;
     states.texture = map->tileset;
-    sfRenderWindow_drawVertexArray(window, map->map, &states);
+    sfRenderWindow_drawVertexArray(window, map->vertices, &states);
 }
