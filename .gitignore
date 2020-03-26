@@ -1,5 +1,6 @@
 *.o
 *.gc*
+*.vgcore
 my_rpg
 unit_tests
 lib/libmy.a
