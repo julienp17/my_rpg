@@ -19,6 +19,7 @@ SRC_F 		=	file_reading/get_nb_files_in_dir.c \
 				file_reading/get_file_lines.c \
 				file_reading/get_file_buffer.c \
 				file_reading/get_file_size.c \
+				file_reading/get_pretty_filename.c \
 				structures/map/map_load.c \
 				structures/map/map_create.c \
 				structures/map/map_draw.c \
@@ -32,7 +33,7 @@ SRC_F 		=	file_reading/get_nb_files_in_dir.c \
 SRC_UT   	=	$(addprefix $(SRC_UT_D), $(SRC_UT_F))
 OBJ_UT 	 	=	$(SRC_UT:.c=.o)
 SRC_UT_D 	= 	tests/
-SRC_UT_F 	=
+SRC_UT_F 	=	test_get_pretty_filename.c \
 
 INC			= 	-I./include/ -I./include/structures/
 
