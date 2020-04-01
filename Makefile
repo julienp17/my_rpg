@@ -21,17 +21,24 @@ SRC_F 		=	my_rpg.c \
 				file_reading/get_file_buffer.c \
 				file_reading/get_file_size.c \
 				file_reading/get_pretty_filename.c \
-				structures/map/map_load.c \
 				structures/map/map_create.c \
+				structures/map/map_destroy.c \
+				structures/map/map_load.c \
 				structures/map/map_draw.c \
 				structures/map/vertices_load.c \
 				structures/map/tiles_load.c \
 				structures/game/game_create.c \
+				structures/game/game_destroy.c \
 				structures/game/game_load.c \
 				structures/game/game_draw.c \
 				structures/game/game_poll_events.c \
 				structures/game/window_create.c \
+				structures/player/player_create.c \
+				structures/player/player_destroy.c \
+				structures/player/player_load.c \
+				structures/player/player_draw.c \
 				structures/assets/assets_create.c \
+				structures/assets/assets_destroy.c \
 				structures/assets/assets_load.c \
 				structures/assets/assets_load_fonts.c \
 				structures/assets/assets_load_music.c \

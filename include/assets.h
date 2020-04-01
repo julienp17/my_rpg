@@ -18,12 +18,12 @@
 
     typedef struct assets {
         dict_t *fonts;
-        dict_t *musics;
-        dict_t *sounds;
+        dict_t *music;
         dict_t *tilesets;
     } assets_t;
 
     assets_t *assets_create(void);
+    void assets_destroy(assets_t *assets);
     int assets_load(assets_t *assets);
     int assets_load_fonts(assets_t *assets);
     int assets_load_music(assets_t *assets);

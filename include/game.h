@@ -12,15 +12,18 @@
     #include "graphical_def.h"
     #include "assets.h"
     #include "map.h"
+    #include "player.h"
 
     typedef struct game {
         assets_t *assets;
         map_t *map;
+        player_t *player;
         window_t *win;
     } game_t;
 
     game_t *game_create(window_t *win);
     int game_load(game_t *game);
+    void game_destroy(game_t *game);
 
     void game_poll_events(game_t *game);
     void game_draw(game_t *game);

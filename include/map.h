@@ -25,6 +25,7 @@
     int map_load(map_t *map, char const *map_path, texture_t *tileset);
     vertex_arr_t *vertices_load(char const *map_path, texture_t *tileset);
     tile_t **tiles_load(char const *map_path);
+    void map_destroy(map_t *map);
 
     void map_draw(window_t *window, map_t *map);
 #endif
