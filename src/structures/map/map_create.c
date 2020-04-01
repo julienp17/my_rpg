@@ -18,7 +18,9 @@ map_t *map_create(void)
         my_puterr("Couldn't allocate memory for map structure.\n");
         return (NULL);
     }
-    map->vertices = NULL;
+    map->back = NULL;
+    map->top = NULL;
+    map->collisions = NULL;
     map->tileset = NULL;
     return (map);
 }
