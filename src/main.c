@@ -5,31 +5,18 @@
 ** Main file for my_rpg
 */
 
-#include <SFML/Graphics.h>
-#include <SFML/Audio.h>
 #include <stddef.h>
-#include "dict.h"
-#include "assets.h"
-#include "map.h"
-
-window_t *window_create(uint width, uint height, char const *title);
+#include "graphical_def.h"
+#include "my_rpg.h"
 
 int main(void)
 {
-    window_t *win = window_create(1920, 1080, "bite");
-    map_t *map = map_create();
-    sfTexture *texture = sfTexture_createFromFile("assets/tilesets/tileset1.png", NULL);
+    window_t *window = NULL;
+    int status = 0;
 
-    map_load(map, "assets/maps/test.csv", texture);
-    (void)win;
-    while (sfRenderWindow_isOpen(win)) {
-        sfEvent event;
-        while (sfRenderWindow_pollEvent(win, &event))
-            if (event.type == sfEvtClosed)
-                sfRenderWindow_close(win);
-        sfRenderWindow_clear(win, sfBlack);
-        map_draw(win, map);
-        sfRenderWindow_display(win);
-    }
-    return (0);
+    window = window_create(W_WIDTH, W_HEIGHT, W_TITLE);
+    if (window == NULL)
+        return (1);
+    status = my_rpg(window);
+    return (status);
 }
