@@ -19,7 +19,7 @@ int player_load(player_t *player, char const *tileset_path)
         return (-1);
     }
     tileset_size = sfTexture_getSize(player->tileset);
-    sprite_rect.width  = tileset_size.x / 4;
+    sprite_rect.width  = tileset_size.x / 3;
     sprite_rect.height = tileset_size.y / 4;
     sfSprite_setTexture(player->sprite, player->tileset, sfFalse);
     sfSprite_setTextureRect(player->sprite, sprite_rect);

@@ -9,6 +9,7 @@
     #define PLAYER_H_
 
     #include "graphical_def.h"
+    #include "map.h"
 
     #define PLAYER_TILE_SIZE        32
     #define PLAYER_TILESET_PATH     "assets/tilesets/player.png"
@@ -23,4 +24,6 @@
     void player_destroy(player_t *player);
 
     void player_draw(window_t *win, player_t *player);
+    bool player_can_move(player_t *player, map_t *map, sfKeyCode key);
+    void player_move(player_t *player, v2f offset);
 #endif
