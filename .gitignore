@@ -7,3 +7,4 @@ lib/libmy.a
 lib/libdict.a
 lib/my/libmy.a
 lib/dict/libdict.a
+.vscode/*
