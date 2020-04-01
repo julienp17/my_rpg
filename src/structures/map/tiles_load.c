@@ -48,7 +48,7 @@ static tile_t **fill_tiles(tile_t **tiles, char **file_lines)
             my_puterr("Couldn't allocate memory for tiles row.\n");
             return (NULL);
         }
-        tiles[i][len] = 0;
+        tiles[i][len] = TILE_ROW_END_VALUE;
         for (uint j = 0 ; str_nums[j] ; j++)
             tiles[i][j] = my_atoi(str_nums[j]);
         my_strarr_free(str_nums);
