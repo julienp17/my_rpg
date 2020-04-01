@@ -15,6 +15,7 @@ SRC			= 	$(addprefix $(SRC_D), $(SRC_F))
 OBJ 		= 	$(SRC:.c=.o)
 SRC_D 		= 	src/
 SRC_F 		=	my_rpg.c \
+				utilities/get_offset_by_key.c \
 				file_reading/get_nb_files_in_dir.c \
 				file_reading/get_filenames_in_dir.c \
 				file_reading/get_file_lines.c \
@@ -25,6 +26,7 @@ SRC_F 		=	my_rpg.c \
 				structures/map/map_destroy.c \
 				structures/map/map_load.c \
 				structures/map/map_draw.c \
+				structures/map/map_collided.c \
 				structures/map/vertices_load.c \
 				structures/map/tiles_load.c \
 				structures/game/game_create.c \
@@ -37,6 +39,8 @@ SRC_F 		=	my_rpg.c \
 				structures/player/player_destroy.c \
 				structures/player/player_load.c \
 				structures/player/player_draw.c \
+				structures/player/player_can_move.c \
+				structures/player/player_move.c \
 				structures/assets/assets_create.c \
 				structures/assets/assets_destroy.c \
 				structures/assets/assets_load.c \
@@ -54,7 +58,7 @@ SRC_UT_F 	=	test_get_pretty_filename.c \
 
 INC			= 	-I./include/ -I./include/structures/
 
-CFLAGS		= 	-W -Wall -Wextra -Werror $(INC) $(LDFLAGS)
+CFLAGS		= 	-W -Wall -Wextra -Werror $(INC) $(LDFLAGS) $(DBFLAGS)
 
 DBFLAGS		=	-g -g3 -ggdb
 
