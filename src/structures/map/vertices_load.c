@@ -46,8 +46,10 @@ static int fill_vertices(vertex_arr_t *vertices, tile_t **tiles,
     for (uint row = 0 ; row < NB_TILES ; row++) {
         map_pos.y = row;
         for (uint col = 0 ; col < NB_TILES ; col++) {
-            map_pos.x = col;
             tile_number = tiles[row][col];
+            if (tile_number <= 0)
+                continue;
+            map_pos.x = col;
             tileset_pos.x = tile_number % (texture_size.x / TILE_SIZE);
             tileset_pos.y = tile_number / (texture_size.x / TILE_SIZE);
             if (append_tile(vertices, map_pos, tileset_pos) == -1)
