@@ -29,6 +29,6 @@ int assets_load_music(assets_t *assets)
         music = sfMusic_createFromFile(file_path);
         dict_set(&musics, file_names[i], (void *) music);
     }
-    assets->musics = musics;
+    assets->music = musics;
     return (0);
 }

@@ -9,5 +9,5 @@
 
 music_t *get_music(assets_t *assets, char const *key)
 {
-    return (dict_get(assets->musics, key));
+    return (dict_get(assets->music, key));
 }
