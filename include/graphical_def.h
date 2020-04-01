@@ -24,6 +24,7 @@
     typedef sfMusic                         music_t;
     typedef sfSound                         sound_t;
     typedef sfTexture                       texture_t;
+    typedef sfTexture                       tileset_t;
     typedef sfVertexArray                   vertex_arr_t;
     typedef sfRenderWindow                  window_t;
     typedef sfEvent                         event_t;
@@ -33,4 +34,5 @@
     #define v2u(x, y)           ((v2u) {(x), (y)})
     #define v2f(x, y)           ((v2f) {(x), (y)})
     #define v3f(x, y)           ((v3f) {(x), (y)})
+    #define RGBA(r, g, b, a)    ((sfColor_fromRGBA(r, g, b, a)))
 #endif
