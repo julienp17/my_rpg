@@ -8,8 +8,9 @@
 #include <stdlib.h>
 #include <SFML/Graphics.h>
 #include "game.h"
+#include "my.h"
 
-game_t *game_create(void)
+game_t *game_create(window_t *win)
 {
     game_t *game = NULL;
 
@@ -18,6 +19,8 @@ game_t *game_create(void)
         my_puterr("Couldn't allocate memory for game structure.\n");
         return (NULL);
     }
+    game->win = win;
     game->assets = assets_create();
+    game->map = map_create();
     return (game);
 }
