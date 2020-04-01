@@ -7,6 +7,7 @@
 
 #include <SFML/Graphics.h>
 #include "game.h"
+#include "my_rpg.h"
 
 static void handle_keyboard_input(sfEvent *event, game_t *game);
 static void check_window_quit(sfEvent *event, sfRenderWindow *window);
@@ -17,7 +18,7 @@ void game_poll_events(game_t *game)
 
     while (sfRenderWindow_pollEvent(game->win, &event)) {
         check_window_quit(&event, game->win);
-        if (event.type == sfEvtKeyReleased)
+        if (event.type == sfEvtKeyPressed)
             handle_keyboard_input(&event, game);
     }
 }
@@ -33,8 +34,13 @@ static void check_window_quit(sfEvent *event, window_t *window)
 static void handle_keyboard_input(sfEvent *event, game_t *game)
 {
     switch (event->key.code) {
-    case sfKeyZ:
-        (void)game;
+    case sfKeyUp:
+    case sfKeyDown:
+    case sfKeyLeft:
+    case sfKeyRight:
+        if (player_can_move(game->player, game->map, event->key.code))
+            player_move(game->player, get_offset_by_key(event->key.code));
+        break;
     default:
         break;
     }
