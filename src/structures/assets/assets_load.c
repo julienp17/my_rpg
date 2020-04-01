@@ -11,7 +11,12 @@
 
 int assets_load(assets_t *assets)
 {
-    assets_load_fonts(assets);
-    assets_load_music(assets);
+    int (*load_funcs[])(assets_t *) = {
+        assets_load_fonts, assets_load_music, assets_load_tilesets, NULL
+    };
+
+    for (uint i = 0 ; load_funcs[i] ; i++)
+        if (load_funcs[i](assets) < 0)
+            return (-1);
     return (0);
 }
