@@ -10,30 +10,30 @@
 #include "map.h"
 #include "my.h"
 
-static tile_t **fill_tileset(tile_t **tileset, char **file_lines);
+static tile_t **fill_tiles(tile_t **tiles, char **file_lines);
 
 tile_t **tiles_load(char const *file_path)
 {
     char **file_lines = NULL;
-    tile_t **tileset = NULL;
+    tile_t **tiles = NULL;
     uint len = 0;
 
     file_lines = get_file_lines(file_path);
     if (file_lines == NULL)
         return (NULL);
     len = my_strarr_len(file_lines);
-    tileset = malloc(sizeof(tile_t *) * (len + 1));
-    if (tileset == NULL) {
-        my_puterr("Couldn't allocate memory for tileset.\n");
+    tiles = malloc(sizeof(tile_t *) * (len + 1));
+    if (tiles == NULL) {
+        my_puterr("Couldn't allocate memory for tiles.\n");
         return (NULL);
     }
-    tileset[len] = 0;
-    tileset = fill_tileset(tileset, file_lines);
+    tiles[len] = NULL;
+    tiles = fill_tiles(tiles, file_lines);
     my_strarr_free(file_lines);
-    return (tileset);
+    return (tiles);
 }
 
-static tile_t **fill_tileset(tile_t **tileset, char **file_lines)
+static tile_t **fill_tiles(tile_t **tiles, char **file_lines)
 {
     char **str_nums = NULL;
     uint len = 0;
@@ -43,15 +43,15 @@ static tile_t **fill_tileset(tile_t **tileset, char **file_lines)
         if (str_nums == NULL)
             return (NULL);
         len = my_strarr_len(str_nums);
-        tileset[i] = malloc(sizeof(tile_t) * (len + 1));
-        if (tileset[i] == NULL) {
-            my_puterr("Couldn't allocate memory for tileset row.\n");
+        tiles[i] = malloc(sizeof(tile_t) * (len + 1));
+        if (tiles[i] == NULL) {
+            my_puterr("Couldn't allocate memory for tiles row.\n");
             return (NULL);
         }
-        tileset[i][len] = 0;
-        for (uint j = 0 ; str_nums[j] && my_strcmp(str_nums[j], "0") != 0 ; j++)
-            tileset[i][j] = my_atoi(str_nums[j]);
+        tiles[i][len] = 0;
+        for (uint j = 0 ; str_nums[j] ; j++)
+            tiles[i][j] = my_atoi(str_nums[j]);
         my_strarr_free(str_nums);
     }
-    return (tileset);
+    return (tiles);
 }
