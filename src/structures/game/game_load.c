@@ -11,7 +11,7 @@ int game_load(game_t *game)
 {
     if (assets_load(game->assets) == -1)
         return (-1);
-    if (map_load(game->map, "assets/maps/map2.csv", get_tileset(game->assets, "map1")) == -1)
+    if (map_load(game->map, "debug", "assets/tilesets/map1.png") == -1)
         return (-1);
     if (player_load(game->player, PLAYER_TILESET_PATH) == -1)
         return (-1);
