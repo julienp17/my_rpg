@@ -43,9 +43,9 @@ static int fill_vertices(vertex_arr_t *vertices, tile_t **tiles,
     v2u texture_size;
 
     texture_size = sfTexture_getSize(tileset);
-    for (uint row = 0 ; row < NB_TILES ; row++) {
+    for (uint row = 0 ; tiles[row] != NULL ; row++) {
         map_pos.y = row;
-        for (uint col = 0 ; col < NB_TILES ; col++) {
+        for (uint col = 0 ; tiles[row][col] != TILE_ROW_END_VALUE ; col++) {
             tile_number = tiles[row][col];
             if (tile_number <= 0)
                 continue;
