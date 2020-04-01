@@ -16,6 +16,7 @@
         struct dictionary *next;
     } dict_t;
 
+    void dict_destroy(dict_t *dict);
     int dict_clear(dict_t *dict);
     void dict_print(dict_t *dict);
     bool dict_has_key(dict_t *dict, char const *key);

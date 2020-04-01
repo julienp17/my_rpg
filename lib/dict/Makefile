@@ -12,6 +12,7 @@ SRC			=	dict_clear.c \
 				dict_has_key.c \
 				dict_remove.c \
 				dict_set.c \
+				dict_destroy.c \
 
 OBJ			=	$(SRC:.c=.o)
 
