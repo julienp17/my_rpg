@@ -18,6 +18,7 @@ map_t *map_create(void)
         my_puterr("Couldn't allocate memory for map structure.\n");
         return (NULL);
     }
+    map->size = v2f(0.0, 0.0);
     map->back = NULL;
     map->top = NULL;
     map->collisions = NULL;

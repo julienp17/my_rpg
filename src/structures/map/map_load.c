@@ -15,12 +15,16 @@ static int load_collisions(map_t *map, char const *map_name);
 
 int map_load(map_t *map, char const *map_name, char const *tileset_path)
 {
+    sfFloatRect map_bounds;
+
     if (load_tileset(map, tileset_path) < 0)
         return (-1);
     if (load_vertices(map, map_name) < 0)
         return (-1);
     if (load_collisions(map, map_name) < 0)
         return (-1);
+    map_bounds = sfVertexArray_getBounds(map->back);
+    map->size = v2f(map_bounds.width, map_bounds.height);
     return (0);
 }
 
