@@ -5,10 +5,15 @@
 ** Destroys a map structure
 */
 
+#include <stdlib.h>
 #include "map.h"
 
 void map_destroy(map_t *map)
 {
-    sfVertexArray_destroy(map->vertices);
+    for (uint i = 0 ; map->collisions[i] ; i++)
+        free(map->collisions[i]);
+    free(map->collisions);
+    sfVertexArray_destroy(map->back);
+    sfVertexArray_destroy(map->top);
     sfTexture_destroy(map->tileset);
 }
