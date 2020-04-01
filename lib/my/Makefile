@@ -19,6 +19,7 @@ SRC			=	my_strcmp.c \
 				my_strdup.c \
 				my_strdupcat.c \
 				my_puterr.c \
+				my_sdup.c \
 
 OBJ			=	$(SRC:.c=.o)
 

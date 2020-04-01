@@ -8,6 +8,8 @@
 #ifndef MY_H_
     #define MY_H_
 
+    #include <stdarg.h>
+
     void my_puterr(char const *str);
     void my_strarr_free(char **arr);
 
@@ -19,6 +21,7 @@
     unsigned int my_count_char(char const *str, char const to_count);
     unsigned int my_count_until_sep(char const *str, char const sep);
 
+    char *my_sdup(int nb_str, ...);
     char *my_strdup(char const *src);
     char *my_strdupcat(char const *s1, char const *s2);
 
