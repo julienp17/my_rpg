@@ -7,13 +7,15 @@
 
 #include "map.h"
 
-void map_draw(window_t *window, map_t *map)
+void map_draw(window_t *win, map_t *map, layer_name_t layer_name)
 {
+    layer_t *map_layer = NULL;
     sfRenderStates states;
 
-    states.blendMode = sfBlendNone;
+    states.blendMode = sfBlendAlpha;
     states.shader = NULL;
     states.transform = sfTransform_Identity;
     states.texture = map->tileset;
-    sfRenderWindow_drawVertexArray(window, map->vertices, &states);
+    map_layer = (layer_name == BACK) ? map->back : map->top;
+    sfRenderWindow_drawVertexArray(win, map_layer, &states);
 }
