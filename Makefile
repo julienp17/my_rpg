@@ -14,7 +14,8 @@ MAIN_F		=	main.c
 SRC			= 	$(addprefix $(SRC_D), $(SRC_F))
 OBJ 		= 	$(SRC:.c=.o)
 SRC_D 		= 	src/
-SRC_F 		=	file_reading/get_nb_files_in_dir.c \
+SRC_F 		=	my_rpg.c \
+				file_reading/get_nb_files_in_dir.c \
 				file_reading/get_filenames_in_dir.c \
 				file_reading/get_file_lines.c \
 				file_reading/get_file_buffer.c \
@@ -25,10 +26,19 @@ SRC_F 		=	file_reading/get_nb_files_in_dir.c \
 				structures/map/map_draw.c \
 				structures/map/vertices_load.c \
 				structures/map/tiles_load.c \
+				structures/game/game_create.c \
+				structures/game/game_load.c \
+				structures/game/game_draw.c \
+				structures/game/game_poll_events.c \
 				structures/game/window_create.c \
 				structures/assets/assets_create.c \
+				structures/assets/assets_load.c \
 				structures/assets/assets_load_fonts.c \
 				structures/assets/assets_load_music.c \
+				structures/assets/assets_load_tilesets.c \
+				structures/assets/get_font.c \
+				structures/assets/get_music.c \
+				structures/assets/get_tileset.c \
 
 SRC_UT   	=	$(addprefix $(SRC_UT_D), $(SRC_UT_F))
 OBJ_UT 	 	=	$(SRC_UT:.c=.o)

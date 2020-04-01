@@ -26,6 +26,7 @@
     typedef sfTexture                       texture_t;
     typedef sfVertexArray                   vertex_arr_t;
     typedef sfRenderWindow                  window_t;
+    typedef sfEvent                         event_t;
 
     #define v2i(x, y)           ((v2i) {(x), (y)})
     #define v2u(x, y)           ((v2u) {(x), (y)})

@@ -16,6 +16,12 @@
     typedef struct game {
         assets_t *assets;
         map_t *map;
-        window_t *window;
+        window_t *win;
     } game_t;
+
+    game_t *game_create(window_t *win);
+    int game_load(game_t *game);
+
+    void game_poll_events(game_t *game);
+    void game_draw(game_t *game);
 #endif
