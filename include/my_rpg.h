@@ -18,4 +18,6 @@
 
     int my_rpg(window_t *win);
     window_t *window_create(uint width, uint height, char const *title);
+
+    v2f get_offset_by_key(sfKeyCode key);
 #endif
