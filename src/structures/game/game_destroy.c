@@ -9,8 +9,10 @@
 
 void game_destroy(game_t *game)
 {
-    sfRenderWindow_destroy(game->win);
     player_destroy(game->player);
     map_destroy(game->map);
+    sfView_destroy(game->view);
+    sfClock_destroy(game->clock);
     assets_destroy(game->assets);
+    sfRenderWindow_destroy(game->win);
 }
