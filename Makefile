@@ -15,7 +15,6 @@ SRC			= 	$(addprefix $(SRC_D), $(SRC_F))
 OBJ 		= 	$(SRC:.c=.o)
 SRC_D 		= 	src/
 SRC_F 		=	my_rpg.c \
-				update_view.c \
 				utilities/get_offset_by_key.c \
 				utilities/sprite_get_center.c \
 				file_reading/get_nb_files_in_dir.c \
@@ -24,10 +23,13 @@ SRC_F 		=	my_rpg.c \
 				file_reading/get_file_buffer.c \
 				file_reading/get_file_size.c \
 				file_reading/get_pretty_filename.c \
+				structures/animation/animation_create.c \
+				structures/animation/animation_destroy.c \
+				structures/animation/animation_can_update.c \
 				structures/map/map_create.c \
 				structures/map/map_destroy.c \
 				structures/map/map_load.c \
-				structures/map/map_draw.c \
+				structures/map/map_draw_layer.c \
 				structures/map/map_collided.c \
 				structures/map/vertices_load.c \
 				structures/map/tiles_load.c \
@@ -35,6 +37,8 @@ SRC_F 		=	my_rpg.c \
 				structures/game/game_destroy.c \
 				structures/game/game_load.c \
 				structures/game/game_draw.c \
+				structures/game/game_update.c \
+				structures/game/game_update_view.c \
 				structures/game/game_poll_events.c \
 				structures/game/window_create.c \
 				structures/player/player_create.c \
@@ -43,6 +47,8 @@ SRC_F 		=	my_rpg.c \
 				structures/player/player_draw.c \
 				structures/player/player_can_move.c \
 				structures/player/player_move.c \
+				structures/player/player_update.c \
+				structures/player/player_update_animation.c \
 				structures/assets/assets_create.c \
 				structures/assets/assets_destroy.c \
 				structures/assets/assets_load.c \
@@ -60,7 +66,7 @@ SRC_UT_F 	=	test_get_pretty_filename.c \
 
 INC			= 	-I./include/ -I./include/structures/
 
-CFLAGS		= 	-W -Wall -Wextra -Werror $(INC) $(LDFLAGS) $(DBFLAGS)
+CFLAGS		= 	-W -Wall -Wextra -Werror $(INC) $(LDFLAGS)
 
 DBFLAGS		=	-g -g3 -ggdb
 
