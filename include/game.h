@@ -19,6 +19,7 @@
         map_t *map;
         player_t *player;
         window_t *win;
+        view_t *view;
     } game_t;
 
     game_t *game_create(window_t *win);

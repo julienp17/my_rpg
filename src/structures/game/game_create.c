@@ -23,5 +23,6 @@ game_t *game_create(window_t *win)
     game->assets = assets_create();
     game->player = player_create();
     game->map = map_create();
+    game->view = sfView_create();
     return (game);
 }
