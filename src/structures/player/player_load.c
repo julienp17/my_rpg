@@ -10,8 +10,8 @@
 
 int player_load(player_t *player, char const *tileset_path)
 {
-    sfIntRect sprite_rect = {0, 0, 0, 0};
-    v2u tileset_size;
+    irect sprite_rect = irect(0, 0, 0, 0);
+    v2u tileset_size = v2u(0, 0);
 
     player->tileset = sfTexture_createFromFile(tileset_path, NULL);
     if (player->tileset == NULL) {
@@ -19,8 +19,8 @@ int player_load(player_t *player, char const *tileset_path)
         return (-1);
     }
     tileset_size = sfTexture_getSize(player->tileset);
-    sprite_rect.width  = tileset_size.x / 3;
-    sprite_rect.height = tileset_size.y / 4;
+    sprite_rect.width  = tileset_size.x / PLAYER_TILESET_COLS;
+    sprite_rect.height = tileset_size.y / PLAYER_TILESET_ROWS;
     sfSprite_setTexture(player->sprite, player->tileset, sfFalse);
     sfSprite_setTextureRect(player->sprite, sprite_rect);
     sfSprite_setPosition(player->sprite, v2f(0, 0));
