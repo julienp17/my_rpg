@@ -15,7 +15,9 @@ SRC			= 	$(addprefix $(SRC_D), $(SRC_F))
 OBJ 		= 	$(SRC:.c=.o)
 SRC_D 		= 	src/
 SRC_F 		=	my_rpg.c \
+				update_view.c \
 				utilities/get_offset_by_key.c \
+				utilities/sprite_get_center.c \
 				file_reading/get_nb_files_in_dir.c \
 				file_reading/get_filenames_in_dir.c \
 				file_reading/get_file_lines.c \
