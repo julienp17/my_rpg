@@ -6,6 +6,7 @@
 */
 
 #include "game.h"
+#include "my_rpg.h"
 
 int game_load(game_t *game)
 {
@@ -15,5 +16,6 @@ int game_load(game_t *game)
         return (-1);
     if (player_load(game->player, PLAYER_TILESET_PATH) == -1)
         return (-1);
+    sfView_setSize(game->view, (v2f) {VIEW_SIZE});
     return (0);
 }
