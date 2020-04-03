@@ -23,12 +23,12 @@
         v2f size;
         tileset_t *tileset;
         tile_t **collisions;
-        layer_t *back;
+        layer_t *bottom;
         layer_t *top;
     } map_t;
 
     typedef enum layer_name {
-        BACK,
+        BOTTOM,
         TOP
     } layer_name_t;
 
@@ -39,5 +39,5 @@
     void map_destroy(map_t *map);
 
     bool map_collided(map_t *map, v2i coords);
-    void map_draw(window_t *win, map_t *map, layer_name_t layer_name);
+    void map_draw_layer(window_t *win, map_t *map, layer_name_t layer_name);
 #endif

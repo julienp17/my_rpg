@@ -19,7 +19,7 @@ map_t *map_create(void)
         return (NULL);
     }
     map->size = v2f(0.0, 0.0);
-    map->back = NULL;
+    map->bottom = NULL;
     map->top = NULL;
     map->collisions = NULL;
     map->tileset = NULL;
