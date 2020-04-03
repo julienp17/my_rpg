@@ -6,6 +6,7 @@
 */
 
 #include "game.h"
+#include "my_rpg.h"
 
 int my_rpg(window_t *win)
 {
@@ -18,6 +19,8 @@ int my_rpg(window_t *win)
         return (-1);
     while (sfRenderWindow_isOpen(game->win)) {
         game_poll_events(game);
+        update_view(game->view, game->player, game->map);
+        sfRenderWindow_setView(game->win, game->view);
         game_draw(game);
     }
     return (0);
