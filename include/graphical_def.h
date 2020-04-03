@@ -29,6 +29,7 @@
     typedef sfRenderWindow                  window_t;
     typedef sfEvent                         event_t;
     typedef sfSprite                        sprite_t;
+    typedef sfView                          view_t;
 
     #define v2i(x, y)           ((v2i) {(x), (y)})
     #define v2u(x, y)           ((v2u) {(x), (y)})
