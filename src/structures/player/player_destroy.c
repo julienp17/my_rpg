@@ -12,5 +12,6 @@ void player_destroy(player_t *player)
 {
     sfSprite_destroy(player->sprite);
     sfTexture_destroy(player->tileset);
+    animation_destroy(player->anim);
     free(player);
 }
