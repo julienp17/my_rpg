@@ -7,7 +7,7 @@
 
 #include "map.h"
 
-void map_draw(window_t *win, map_t *map, layer_name_t layer_name)
+void map_draw_layer(window_t *win, map_t *map, layer_name_t layer_name)
 {
     layer_t *map_layer = NULL;
     sfRenderStates states;
@@ -16,6 +16,6 @@ void map_draw(window_t *win, map_t *map, layer_name_t layer_name)
     states.shader = NULL;
     states.transform = sfTransform_Identity;
     states.texture = map->tileset;
-    map_layer = (layer_name == BACK) ? map->back : map->top;
+    map_layer = (layer_name == BOTTOM) ? map->bottom : map->top;
     sfRenderWindow_drawVertexArray(win, map_layer, &states);
 }
