@@ -10,8 +10,8 @@
 void game_draw(game_t *game)
 {
     sfRenderWindow_clear(game->win, sfBlack);
-    map_draw(game->win, game->map, BACK);
+    map_draw_layer(game->win, game->map, BOTTOM);
     player_draw(game->win, game->player);
-    map_draw(game->win, game->map, TOP);
+    map_draw_layer(game->win, game->map, TOP);
     sfRenderWindow_display(game->win);
 }
