@@ -18,8 +18,9 @@
         assets_t *assets;
         map_t *map;
         player_t *player;
-        window_t *win;
         view_t *view;
+        gclock_t *clock;
+        window_t *win;
     } game_t;
 
     game_t *game_create(window_t *win);
@@ -28,4 +29,6 @@
 
     void game_poll_events(game_t *game);
     void game_draw(game_t *game);
+    void game_update(game_t *game, int delta_time);
+    void game_update_view(game_t *game);
 #endif
