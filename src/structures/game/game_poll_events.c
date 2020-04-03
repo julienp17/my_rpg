@@ -11,25 +11,17 @@
 
 static bool is_movement_key(sfKeyCode key);
 static void handle_key_pressed(sfEvent *event, game_t *game);
-static void check_window_quit(sfEvent *event, sfRenderWindow *window);
 
 void game_poll_events(game_t *game)
 {
     sfEvent event;
 
     while (sfRenderWindow_pollEvent(game->win, &event)) {
-        check_window_quit(&event, game->win);
+        if (event.type == sfEvtClosed)
+            sfRenderWindow_close(game->win);
         if (event.type == sfEvtKeyPressed)
             handle_key_pressed(&event, game);
     }
-}
-
-static void check_window_quit(sfEvent *event, window_t *window)
-{
-    if (event->type == sfEvtClosed)
-        sfRenderWindow_close(window);
-    if (event->key.code == sfKeyEscape)
-        sfRenderWindow_close(window);
 }
 
 static void handle_key_pressed(sfEvent *event, game_t *game)
@@ -39,6 +31,7 @@ static void handle_key_pressed(sfEvent *event, game_t *game)
     case sfKeyDown:  game->player->orientation = FRONT; break;
     case sfKeyLeft:  game->player->orientation = LEFT; break;
     case sfKeyRight: game->player->orientation = RIGHT; break;
+    case sfKeyEscape: sfRenderWindow_close(game->win); break;
     default: break;
     }
     if (is_movement_key(event->key.code)) {
