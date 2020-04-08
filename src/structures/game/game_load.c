@@ -10,11 +10,11 @@
 
 int game_load(game_t *game)
 {
-    if (assets_load(game->assets) == -1)
+    if (assets_load(game->assets) < 0)
         return (-1);
-    if (map_load(game->map, "debug", "assets/tilesets/map1.png") == -1)
+    if (map_load(game->map, "debug", "assets/tilesets/map1.png") < 0)
         return (-1);
-    if (player_load(game->player, PLAYER_TILESET_PATH) == -1)
+    if (player_load(game->player, PLAYER_TILESET_PATH) < 0)
         return (-1);
     sfView_setSize(game->view, (v2f) {VIEW_SIZE});
     sfClock_restart(game->clock);
