@@ -21,7 +21,7 @@ map_t *map_create(void)
     map->size = v2f(0.0, 0.0);
     map->bottom = NULL;
     map->top = NULL;
-    map->collisions = NULL;
+    map->objects = NULL;
     map->tileset = NULL;
     return (map);
 }

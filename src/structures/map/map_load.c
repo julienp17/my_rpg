@@ -11,7 +11,7 @@
 
 static int load_tileset(map_t *map, char const *tileset_path);
 static int load_vertices(map_t *map, char const *map_name);
-static int load_collisions(map_t *map, char const *map_name);
+static int load_objects(map_t *map, char const *map_name);
 
 int map_load(map_t *map, char const *map_name, char const *tileset_path)
 {
@@ -21,7 +21,7 @@ int map_load(map_t *map, char const *map_name, char const *tileset_path)
         return (-1);
     if (load_vertices(map, map_name) < 0)
         return (-1);
-    if (load_collisions(map, map_name) < 0)
+    if (load_objects(map, map_name) < 0)
         return (-1);
     map_bounds = sfVertexArray_getBounds(map->bottom);
     map->size = v2f(map_bounds.width, map_bounds.height);
@@ -59,13 +59,13 @@ static int load_vertices(map_t *map, char const *map_name)
     return (0);
 }
 
-static int load_collisions(map_t *map, char const *map_name)
+static int load_objects(map_t *map, char const *map_name)
 {
     char *map_path = NULL;
 
-    map_path = my_sdup(3, MAP_DIR_PATH, map_name, "_collision.csv");
-    map->collisions = tiles_load(map_path);
-    if (map->collisions == NULL)
+    map_path = my_sdup(3, MAP_DIR_PATH, map_name, "_objects.csv");
+    map->objects = tiles_load(map_path);
+    if (map->objects == NULL)
         return (-1);
     free(map_path);
     return (0);
