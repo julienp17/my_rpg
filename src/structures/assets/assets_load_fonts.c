@@ -27,7 +27,7 @@ int assets_load_fonts(assets_t *assets)
     for (unsigned int i = 0 ; file_names[i] ; i++) {
         file_path = my_strdupcat(dir_path, file_names[i]);
         font = sfFont_createFromFile(file_path);
-        dict_set(&fonts, file_names[i], (void *) font);
+        dict_set(&fonts, get_pretty_filename(file_names[i]), (void *) font);
     }
     assets->fonts = fonts;
     return (0);

@@ -27,7 +27,7 @@ int assets_load_music(assets_t *assets)
     for (unsigned int i = 0 ; file_names[i] ; i++) {
         file_path = my_strdupcat(dir_path, file_names[i]);
         music = sfMusic_createFromFile(file_path);
-        dict_set(&musics, file_names[i], (void *) music);
+        dict_set(&musics, get_pretty_filename(file_names[i]), (void *) music);
     }
     assets->music = musics;
     return (0);
