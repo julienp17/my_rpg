@@ -13,8 +13,8 @@
 
     #define ICON_PATH           "assets/icons/my_rpg_icon.png"
     #define FPS_LIMIT           60
-    #define W_WIDTH             1920
-    #define W_HEIGHT            1080
+    #define W_WIDTH             800
+    #define W_HEIGHT            600
     #define W_TITLE             "my_rpg"
     #define VIEW_SIZE           720, 480
 
