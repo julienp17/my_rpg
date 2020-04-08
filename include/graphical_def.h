@@ -32,6 +32,7 @@
     typedef sfEvent                         event_t;
     typedef sfSprite                        sprite_t;
     typedef sfView                          view_t;
+    typedef sfText                          text_t;
     typedef sfClock                         gclock_t;
 
     #define v2i(x, y)                       ((v2i) {(x), (y)})
