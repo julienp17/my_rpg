@@ -11,6 +11,7 @@ void game_draw(game_t *game)
 {
     sfRenderWindow_clear(game->win, sfBlack);
     map_draw_layer(game->win, game->map, BOTTOM);
+    map_draw_npcs(game->win, game->map);
     player_draw(game->win, game->player);
     map_draw_layer(game->win, game->map, TOP);
     sfRenderWindow_display(game->win);
