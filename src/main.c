@@ -14,7 +14,7 @@ int main(void)
     window_t *window = NULL;
     int status = 0;
 
-    window = window_create(W_WIDTH, W_HEIGHT, W_TITLE);
+    window = window_create(WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
     if (window == NULL)
         return (1);
     status = my_rpg(window);

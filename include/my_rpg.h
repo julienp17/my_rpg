@@ -13,10 +13,13 @@
 
     #define ICON_PATH           "assets/icons/my_rpg_icon.png"
     #define FPS_LIMIT           60
-    #define W_WIDTH             800
-    #define W_HEIGHT            600
-    #define W_TITLE             "my_rpg"
-    #define VIEW_SIZE           720, 480
+    #define WIN_TITLE           "my_rpg"
+    #define WIN_WIDTH           800
+    #define WIN_HEIGHT          600
+    #define WIN_SIZE            WIN_WIDTH, WIN_HEIGHT
+    #define VIEW_WIDTH          720
+    #define VIEW_HEIGHT         480
+    #define VIEW_SIZE           VIEW_WIDTH, VIEW_HEIGHT
 
     int my_rpg(window_t *win);
     window_t *window_create(uint width, uint height, char const *title);
@@ -25,4 +28,5 @@
 
     v2f get_offset_by_key(sfKeyCode key);
     v2f sprite_get_center(sprite_t *sprite);
+    void sprite_flip(sprite_t *sprite);
 #endif
