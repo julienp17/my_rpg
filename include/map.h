@@ -10,11 +10,12 @@
 
     #include <stdbool.h>
     #include "graphical_def.h"
+    #include "npc.h"
 
-    #define MAP_DIR_PATH        "assets/maps/"
-    #define CSV_SEP             ','
-    #define TILE_SIZE           32
-    #define TILE_ROW_END_VALUE  -84
+    #define MAP_DIR_PATH            "assets/maps/"
+    #define CSV_SEP                 ','
+    #define TILE_SIZE               32
+    #define TILE_ROW_END_VALUE      -84
 
     typedef int tile_t;
     typedef sfVertexArray layer_t;
@@ -29,10 +30,12 @@
 
     typedef struct map {
         v2f size;
-        tileset_t *tileset;
+        tileset_t *map_tileset;
+        tileset_t *npc_tileset;
         tile_t **objects;
         layer_t *bottom;
         layer_t *top;
+        npc_t **npcs;
     } map_t;
 
     typedef enum layer_name {
@@ -48,4 +51,5 @@
 
     bool map_collided(map_t *map, v2i coords);
     void map_draw_layer(window_t *win, map_t *map, layer_name_t layer_name);
+    void map_draw_npcs(window_t *win, map_t *map);
 #endif
