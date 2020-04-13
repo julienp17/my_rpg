@@ -15,5 +15,6 @@ void map_destroy(map_t *map)
     free(map->objects);
     sfVertexArray_destroy(map->bottom);
     sfVertexArray_destroy(map->top);
-    sfTexture_destroy(map->tileset);
+    sfTexture_destroy(map->map_tileset);
+    sfTexture_destroy(map->npc_tileset);
 }
