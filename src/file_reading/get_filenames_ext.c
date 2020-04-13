@@ -1,0 +1,73 @@
+/*
+** EPITECH PROJECT, 2020
+** MUL_my_rpg_2019
+** File description:
+** Returns the list of filenames in a directory
+*/
+
+#include <dirent.h>
+#include <stdlib.h>
+#include "file_reading.h"
+#include "my.h"
+
+static char **allocate_filenames(char const *dir_path);
+static char **get_filenames_from_dir(char const *dir_path, DIR *dir,
+                                    char const *ext);
+
+char **get_filenames_ext(char const *dir_path, char const *ext)
+{
+    char **file_names = NULL;
+    DIR *dir = NULL;
+
+    dir = opendir(dir_path);
+    if (dir == NULL) {
+        my_puterr("Couldn't open directory for some reason.\n");
+        return (NULL);
+    }
+    file_names = get_filenames_from_dir(dir_path, dir, ext);
+    if (closedir(dir) == -1) {
+        my_puterr("Couldn't close directoy for some reason.\n");
+        return (NULL);
+    }
+    return (file_names);
+}
+
+static char **get_filenames_from_dir(char const *dir_path, DIR *dir,
+                                    char const *ext)
+{
+    char **file_names = NULL;
+    char *file_name = NULL;
+    struct dirent *dir_entry = NULL;
+    unsigned int file_name_index = 0;
+
+    file_names = allocate_filenames(dir_path);
+    if (file_names == NULL)
+        return (NULL);
+    while ((dir_entry = readdir(dir)) != NULL) {
+        file_name = dir_entry->d_name;
+        if (my_strcmp(file_name, ".") == 0 || my_strcmp(file_name, "..") == 0)
+            continue;
+        if (!my_str_ends(file_name, ext))
+            continue;
+        file_names[file_name_index] = my_strdup(file_name);
+        file_name_index++;
+    }
+    file_names[file_name_index] = NULL;
+    return (file_names);
+}
+
+static char **allocate_filenames(char const *dir_path)
+{
+    char **file_names = NULL;
+    int nb_files = 0;
+
+    nb_files = get_nb_files_in_dir(dir_path);
+    if (nb_files < 0)
+        return (NULL);
+    file_names = malloc(sizeof(char *) * (nb_files + 1));
+    if (file_names == NULL) {
+        my_puterr("Couldn't allocate memory for file names in directory.\n");
+        return (NULL);
+    }
+    return (file_names);
+}

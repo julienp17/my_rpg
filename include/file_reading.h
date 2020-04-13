@@ -15,4 +15,5 @@
 
     int get_nb_files_in_dir(char const *dir_path);
     char **get_filenames_in_dir(char const *dir_path);
+    char **get_filenames_ext(char const *dir_path, char const *ext);
 #endif
