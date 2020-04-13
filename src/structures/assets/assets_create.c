@@ -20,6 +20,5 @@ assets_t *assets_create(void)
     }
     assets->fonts = NULL;
     assets->music = NULL;
-    assets->tilesets = NULL;
     return (assets);
 }

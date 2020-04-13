@@ -5,11 +5,12 @@
 ** Destroys an assets structure
 */
 
+#include <stdlib.h>
 #include "assets.h"
 
 void assets_destroy(assets_t *assets)
 {
     dict_destroy(assets->fonts);
     dict_destroy(assets->music);
-    dict_destroy(assets->tilesets);
+    free(assets);
 }
