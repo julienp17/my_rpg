@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-char **my_str_to_word_array(char *str, char const sep)
+char **my_str_to_word_array(char const *str, char const sep)
 {
     unsigned int nb_rows = my_count_char(str, sep) + 1;
     unsigned int nb_cols = 0;
