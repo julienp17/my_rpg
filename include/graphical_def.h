@@ -39,7 +39,10 @@
     #define v2u(x, y)                       ((v2u) {(x), (y)})
     #define v2f(x, y)                       ((v2f) {(x), (y)})
     #define v3f(x, y)                       ((v3f) {(x), (y)})
-    #define irect(x, y, w, h)               ((irect){(x), (y), (w), (h)})
-    #define frect(x, y, w, h)               ((frect){(x), (y), (w), (h)})
+    #define irect(x, y, w, h)               ((irect) {(x), (y), (w), (h)})
+    #define frect(x, y, w, h)               ((frect) {(x), (y), (w), (h)})
     #define RGBA(r, g, b, a)                ((sfColor_fromRGBA(r, g, b, a)))
+
+    irect irect_from_str(char const *str, char const sep);
+    v2f v2f_from_str(char const *str, char const sep);
 #endif
