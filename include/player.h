@@ -12,6 +12,9 @@
     #include "animation.h"
     #include "map.h"
 
+    #define PLAYER_START_POS_X      13
+    #define PLAYER_START_POS_Y      9
+    #define PLAYER_START_POS        PLAYER_START_POS_X, PLAYER_START_POS_Y
     #define PLAYER_TILE_SIZE        32
     #define PLAYER_TILESET_PATH     "assets/tilesets/player.png"
     #define PLAYER_TILESET_ROWS     4
