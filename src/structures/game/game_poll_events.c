@@ -60,7 +60,7 @@ static void handle_wrap(map_t *map, player_t *player)
         if (sfFloatRect_contains(&(map->warps[i]->zone), pos.x, pos.y))
             warp = map->warps[i];
     if (warp) {
-        map_load(map, warp->map_name, MAP_TILESET_PATH);
+        map_load(map, warp->map_name);
         sfSprite_setPosition(player->sprite, warp->dest);
     }
 }

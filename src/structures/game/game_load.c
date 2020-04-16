@@ -14,7 +14,7 @@ int game_load(game_t *game)
 
     if (assets_load(game->assets) < 0)
         return (-1);
-    if (map_load(game->map, "debug", MAP_TILESET_PATH) < 0)
+    if (map_load(game->map, "debug") < 0)
         return (-1);
     if (player_load(game->player, PLAYER_TILESET_PATH) < 0)
         return (-1);

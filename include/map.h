@@ -51,7 +51,7 @@
     } layer_name_t;
 
     map_t *map_create(void);
-    int map_load(map_t *map, char const *map_path, char const *tileset_path);
+    int map_load(map_t *map, char const *map_path);
     vertex_arr_t *vertices_load(char const *map_path, texture_t *tileset);
     tile_t **tiles_load(char const *map_path);
     void map_destroy(map_t *map);

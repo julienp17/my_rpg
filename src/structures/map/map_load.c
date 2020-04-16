@@ -10,20 +10,20 @@
 #include "map.h"
 #include "my.h"
 
-static int load_tileset(map_t *map, char const *tileset_path);
+static int load_tileset(map_t *map);
 static int load_vertices(map_t *map, char const *map_name);
 static int load_objects(map_t *map, char const *map_name);
 static int load_npcs(map_t *map, char const *map_name);
 static int load_warps(map_t *map, char const *map_name);
 
-int map_load(map_t *map, char const *map_name, char const *tileset_path)
+int map_load(map_t *map, char const *map_name)
 {
     frect map_bounds;
     int (*load_functions[])(map_t *, char const *) = {
         &load_vertices, &load_objects, &load_npcs, &load_warps, NULL
     };
 
-    if (load_tileset(map, tileset_path) < 0)
+    if (load_tileset(map) < 0)
         return (-1);
     for (uint i = 0 ; load_functions[i] ; i++)
         if (load_functions[i](map, map_name) < 0)
@@ -34,7 +34,7 @@ int map_load(map_t *map, char const *map_name, char const *tileset_path)
     return (0);
 }
 
-static int load_tileset(map_t *map, char const *tileset_path)
+static int load_tileset(map_t *map)
 {
     if (map->npc_tileset == NULL)
         map->npc_tileset = sfTexture_createFromFile(NPC_TILESET_PATH, NULL);
@@ -42,9 +42,8 @@ static int load_tileset(map_t *map, char const *tileset_path)
         my_puterr("Couldn't load npcs tileset.\n");
         return (-1);
     }
-    if (map->map_tileset != NULL)
-        sfTexture_destroy(map->map_tileset);
-    map->map_tileset = sfTexture_createFromFile(tileset_path, NULL);
+    if (map->map_tileset == NULL)
+        map->map_tileset = sfTexture_createFromFile(MAP_TILESET_PATH, NULL);
     if (map->map_tileset == NULL) {
         my_puterr("Couldn't load map tileset.\n");
         return (-1);
