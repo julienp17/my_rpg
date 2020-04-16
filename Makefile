@@ -18,6 +18,9 @@ SRC_F 		=	my_rpg.c \
 				utilities/get_offset_by_key.c \
 				utilities/v2f_from_str.c \
 				utilities/irect_from_str.c \
+				utilities/frect_from_str.c \
+				utilities/frect_multiply.c \
+				utilities/v2f_multiply.c \
 				utilities/sprite_get_center.c \
 				utilities/sprite_flip.c \
 				file_reading/get_nb_files_in_dir.c \
@@ -58,6 +61,9 @@ SRC_F 		=	my_rpg.c \
 				structures/npc/npc_load.c \
 				structures/npc/npc_destroy.c \
 				structures/npc/npc_draw.c \
+				structures/warp/warp_create.c \
+				structures/warp/warp_load.c \
+				structures/warp/warp_destroy.c \
 				structures/assets/assets_create.c \
 				structures/assets/assets_destroy.c \
 				structures/assets/assets_load.c \

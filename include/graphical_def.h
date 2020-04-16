@@ -44,5 +44,9 @@
     #define RGBA(r, g, b, a)                ((sfColor_fromRGBA(r, g, b, a)))
 
     irect irect_from_str(char const *str, char const sep);
+    frect frect_from_str(char const *str, char const sep);
     v2f v2f_from_str(char const *str, char const sep);
+
+    void frect_multiply(frect *rect, float multiplier);
+    void v2f_multiply(v2f *vector, float multiplier);
 #endif
