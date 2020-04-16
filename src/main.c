@@ -18,5 +18,6 @@ int main(void)
     if (window == NULL)
         return (1);
     status = my_rpg(window);
+    sfRenderWindow_destroy(window);
     return (status);
 }
