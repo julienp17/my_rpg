@@ -14,12 +14,13 @@ static int load_tileset(map_t *map, char const *tileset_path);
 static int load_vertices(map_t *map, char const *map_name);
 static int load_objects(map_t *map, char const *map_name);
 static int load_npcs(map_t *map, char const *map_name);
+static int load_warps(map_t *map, char const *map_name);
 
 int map_load(map_t *map, char const *map_name, char const *tileset_path)
 {
     frect map_bounds;
     int (*load_functions[])(map_t *, char const *) = {
-        &load_vertices, &load_objects, &load_npcs, NULL
+        &load_vertices, &load_objects, &load_npcs, &load_warps, NULL
     };
 
     if (load_tileset(map, tileset_path) < 0)
@@ -29,13 +30,14 @@ int map_load(map_t *map, char const *map_name, char const *tileset_path)
             return (-1);
     map_bounds = sfVertexArray_getBounds(map->bottom);
     map->size = v2f(map_bounds.width, map_bounds.height);
+    map->name = my_strdup(map_name);
     return (0);
 }
 
 static int load_tileset(map_t *map, char const *tileset_path)
 {
     if (map->npc_tileset == NULL)
-        map->npc_tileset = sfTexture_createFromFile("assets/tilesets/npcs.png", NULL);
+        map->npc_tileset = sfTexture_createFromFile(NPC_TILESET_PATH, NULL);
     if (map->npc_tileset == NULL) {
         my_puterr("Couldn't load npcs tileset.\n");
         return (-1);
@@ -89,9 +91,11 @@ static int load_npcs(map_t *map, char const *map_name)
     unsigned int nb_npcs = 0;
 
     map_path = my_sdup(3, MAP_DIR_PATH, map_name, "/");
-    filenames = get_filenames_ext(map_path, ".npc");
-    if (filenames == NULL)
-        return (-1);
+    filenames = get_filenames_ext(map_path, NPC_EXT);
+    if (filenames == NULL) {
+        free(map_path);
+        return (0);
+    }
     for (nb_npcs = 0; filenames[nb_npcs] ; nb_npcs++);
     map->npcs = malloc(sizeof(npc_t *) * (nb_npcs + 1));
     if (map->npcs == NULL) {
@@ -105,6 +109,40 @@ static int load_npcs(map_t *map, char const *map_name)
         if (map->npcs[i] == NULL)
             return (-1);
         if (npc_load(map->npcs[i], filename, map->npc_tileset) < 0)
+            return (-1);
+        free(filename);
+    }
+    free(map_path);
+    my_strarr_free(filenames);
+    return (0);
+}
+
+static int load_warps(map_t *map, char const *map_name)
+{
+    char *map_path = NULL;
+    char **filenames = NULL;
+    char *filename = NULL;
+    unsigned int nb_warps = 0;
+
+    map_path = my_sdup(3, MAP_DIR_PATH, map_name, "/");
+    filenames = get_filenames_ext(map_path, WARP_EXT);
+    if (filenames == NULL) {
+        free(map_path);
+        return (0);
+    }
+    for (nb_warps = 0; filenames[nb_warps] ; nb_warps++);
+    map->warps = malloc(sizeof(warp_t *) * (nb_warps + 1));
+    if (map->warps == NULL) {
+        my_puterr("Couldn't allocate memory for map warps.\n");
+        return (-1);
+    }
+    map->warps[nb_warps] = NULL;
+    for (uint i = 0 ; filenames[i] ; i++) {
+        filename = my_strdupcat(map_path, filenames[i]);
+        map->warps[i] = warp_create();
+        if (map->warps[i] == NULL)
+            return (-1);
+        if (warp_load(map->warps[i], filename) < 0)
             return (-1);
         free(filename);
     }

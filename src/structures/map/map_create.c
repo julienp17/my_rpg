@@ -18,6 +18,7 @@ map_t *map_create(void)
         my_puterr("Couldn't allocate memory for map structure.\n");
         return (NULL);
     }
+    map->name = NULL;
     map->size = v2f(0.0, 0.0);
     map->bottom = NULL;
     map->top = NULL;
@@ -25,5 +26,6 @@ map_t *map_create(void)
     map->npc_tileset = NULL;
     map->map_tileset = NULL;
     map->npcs = NULL;
+    map->warps = NULL;
     return (map);
 }

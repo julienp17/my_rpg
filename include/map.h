@@ -11,8 +11,13 @@
     #include <stdbool.h>
     #include "graphical_def.h"
     #include "npc.h"
+    #include "warp.h"
 
     #define MAP_DIR_PATH            "assets/maps/"
+    #define MAP_TILESET_PATH        "assets/tilesets/map1.png"
+    #define NPC_TILESET_PATH        "assets/tilesets/npcs.png"
+    #define NPC_EXT                 ".npc"
+    #define WARP_EXT                ".warp"
     #define CSV_SEP                 ','
     #define TILE_SIZE               32
     #define TILE_ROW_END_VALUE      -84
@@ -29,6 +34,7 @@
     } mpa_object_t;
 
     typedef struct map {
+        char *name;
         v2f size;
         tileset_t *map_tileset;
         tileset_t *npc_tileset;
@@ -36,6 +42,7 @@
         layer_t *bottom;
         layer_t *top;
         npc_t **npcs;
+        warp_t **warps;
     } map_t;
 
     typedef enum layer_name {
