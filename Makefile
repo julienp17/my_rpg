@@ -36,6 +36,8 @@ SRC_F 		=	my_rpg.c \
 				structures/map/map_create.c \
 				structures/map/map_destroy.c \
 				structures/map/map_load.c \
+				structures/map/map_update.c \
+				structures/map/map_update_npcs.c \
 				structures/map/map_draw_layer.c \
 				structures/map/map_draw_npcs.c \
 				structures/map/map_collided.c \
@@ -61,6 +63,8 @@ SRC_F 		=	my_rpg.c \
 				structures/npc/npc_load.c \
 				structures/npc/npc_destroy.c \
 				structures/npc/npc_draw.c \
+				structures/npc/npc_update.c \
+				structures/npc/npc_update_animation.c \
 				structures/warp/warp_create.c \
 				structures/warp/warp_load.c \
 				structures/warp/warp_destroy.c \

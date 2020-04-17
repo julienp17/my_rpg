@@ -56,6 +56,8 @@
     tile_t **tiles_load(char const *map_path);
     void map_destroy(map_t *map);
 
+    void map_update(map_t *map, int delta_time);
+    void map_update_npcs(map_t *map, int delta_time);
     bool map_collided(map_t *map, v2i coords);
     void map_draw_layer(window_t *win, map_t *map, layer_name_t layer_name);
     void map_draw_npcs(window_t *win, map_t *map);
