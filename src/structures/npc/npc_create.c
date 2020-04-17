@@ -23,6 +23,9 @@ npc_t *npc_create(void)
         my_puterr("Couldn't allocate memory for npc sprite.\n");
         return (NULL);
     }
+    npc->anim = animation_create(NPC_SWITCH_TIME);
+    if (npc->anim == NULL)
+        return (NULL);
     npc->name = NULL;
     npc->text = NULL;
     return (npc);
