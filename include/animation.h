@@ -20,5 +20,7 @@
     animation_t *animation_create(int switch_time);
     void animation_destroy(animation_t *animation);
 
+    void animation_update(void *entity, void (*anim_func)(void *),
+                        int delta_time);
     bool animation_can_update(animation_t *animation);
 #endif

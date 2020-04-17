@@ -32,6 +32,7 @@ SRC_F 		=	my_rpg.c \
 				file_reading/get_pretty_filename.c \
 				structures/animation/animation_create.c \
 				structures/animation/animation_destroy.c \
+				structures/animation/animation_update.c \
 				structures/animation/animation_can_update.c \
 				structures/map/map_create.c \
 				structures/map/map_destroy.c \
