@@ -17,8 +17,8 @@
     #define WIN_WIDTH           800
     #define WIN_HEIGHT          600
     #define WIN_SIZE            WIN_WIDTH, WIN_HEIGHT
-    #define VIEW_WIDTH          720
-    #define VIEW_HEIGHT         480
+    #define VIEW_WIDTH          480
+    #define VIEW_HEIGHT         360
     #define VIEW_SIZE           VIEW_WIDTH, VIEW_HEIGHT
 
     int my_rpg(window_t *win);
