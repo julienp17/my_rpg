@@ -84,7 +84,10 @@ SRC_F 		=	my_rpg.c \
 SRC_UT   	=	$(addprefix $(SRC_UT_D), $(SRC_UT_F))
 OBJ_UT 	 	=	$(SRC_UT:.c=.o)
 SRC_UT_D 	= 	tests/
-SRC_UT_F 	=	test_get_pretty_filename.c \
+SRC_UT_F 	=	test_v2f_multiply.c \
+				test_v2f_add.c \
+				test_v2f_from_str.c \
+				test_v2f_to_grid.c
 
 INC			= 	-I./include/ -I./include/structures/
 
