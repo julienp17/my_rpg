@@ -7,8 +7,11 @@
 
 #include "graphical_def.h"
 
-void v2f_multiply(v2f *vector, float multiplier)
+v2f v2f_multiply(v2f vector1, v2f vector2)
 {
-    vector->x *= multiplier;
-    vector->y *= multiplier;
+    v2f product_vector = v2f(0, 0);
+
+    product_vector.x = vector1.x * vector2.x;
+    product_vector.y = vector1.y * vector2.y;
+    return (product_vector);
 }
