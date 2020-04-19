@@ -27,6 +27,8 @@
     typedef sfSound                         sound_t;
     typedef sfTexture                       texture_t;
     typedef sfTexture                       tileset_t;
+    typedef sfTexture                       spritesheet_t;
+    typedef spritesheet_t                   sheet_t;
     typedef sfVertexArray                   vertex_arr_t;
     typedef sfRenderWindow                  window_t;
     typedef sfEvent                         event_t;
@@ -49,4 +51,5 @@
 
     void frect_multiply(frect *rect, float multiplier);
     void v2f_multiply(v2f *vector, float multiplier);
+    v2i v2f_to_grid(v2f vector, int tile_size);
 #endif

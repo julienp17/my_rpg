@@ -14,8 +14,8 @@
     #include "warp.h"
 
     #define MAP_DIR_PATH            "assets/maps/"
-    #define MAP_TILESET_PATH        "assets/tilesets/map1.png"
-    #define NPC_TILESET_PATH        "assets/tilesets/npcs.png"
+    #define MAP_TILESET_PATH        "assets/tilesets/onett.png"
+    #define NPC_SPRITESHEET_PATH    "assets/spritesheets/npcs.png"
     #define NPC_EXT                 ".npc"
     #define WARP_EXT                ".warp"
     #define CSV_SEP                 ','
@@ -37,7 +37,7 @@
         char *name;
         v2f size;
         tileset_t *map_tileset;
-        tileset_t *npc_tileset;
+        spritesheet_t *npc_sheet;
         tile_t **objects;
         layer_t *bottom;
         layer_t *top;
@@ -54,6 +54,8 @@
     int map_load(map_t *map, char const *map_path);
     vertex_arr_t *vertices_load(char const *map_path, texture_t *tileset);
     tile_t **tiles_load(char const *map_path);
+    int map_load_npcs(map_t *map, char const *map_name);
+    int map_load_warps(map_t *map, char const *map_name);
     void map_destroy(map_t *map);
 
     void map_update(map_t *map, int delta_time);
