@@ -12,7 +12,7 @@
     #include "animation.h"
 
     #define NPC_EXT                 ".npc"
-    #define NPC_SWITCH_TIME         1000
+    #define NPC_SWITCH_TIME         500
 
     typedef struct npc {
         animation_t *anim;
