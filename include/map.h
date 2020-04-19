@@ -14,7 +14,7 @@
     #include "warp.h"
 
     #define MAP_DIR_PATH            "assets/maps/"
-    #define MAP_TILESET_PATH        "assets/tilesets/onett.png"
+    #define MAP_TILESET_PATH        "assets/tilesets/map1.png"
     #define NPC_SPRITESHEET_PATH    "assets/spritesheets/npcs.png"
     #define NPC_EXT                 ".npc"
     #define WARP_EXT                ".warp"
