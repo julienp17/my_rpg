@@ -50,7 +50,7 @@
     v2f v2f_from_str(char const *str, char const sep);
 
     void frect_multiply(frect *rect, float multiplier);
-    void v2f_multiply(v2f *vector, float multiplier);
-    v2i v2f_to_grid(v2f vector, int tile_size);
     v2f v2f_add(v2f vector1, v2f vector2);
+    v2f v2f_multiply(v2f vector1, v2f vector2);
+    v2i v2f_to_grid(v2f vector, int tile_size);
 #endif

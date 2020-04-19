@@ -22,7 +22,7 @@ int warp_load(warp_t *warp, char const *pathname)
     warp->zone = frect_from_str(file_lines[1], ' ');
     warp->dest = v2f_from_str(file_lines[2], ' ');
     frect_multiply(&(warp->zone), TILE_SIZE);
-    v2f_multiply(&(warp->dest), TILE_SIZE);
+    warp->dest = v2f_multiply(warp->dest, v2f(TILE_SIZE, TILE_SIZE));
     my_strarr_free(file_lines);
     return (0);
 }
