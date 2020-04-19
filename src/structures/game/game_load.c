@@ -5,23 +5,23 @@
 ** Load a game structure
 */
 
+#include <stdlib.h>
 #include "game.h"
 #include "my_rpg.h"
 
 int game_load(game_t *game)
 {
-    v2f player_start_pos = v2f(0, 0);
+    v2f player_start = v2f(0, 0);
 
     if (assets_load(game->assets) < 0)
         return (-1);
-    if (map_load(game->map, "debug") < 0)
+    if (map_load(game->map, "debug") != EXIT_SUCCESS)
         return (-1);
-    if (player_load(game->player, PLAYER_TILESET_PATH) < 0)
+    if (player_load(game->player, PLAYER_SHEET_PATH) < 0)
         return (-1);
     sfView_setSize(game->view, (v2f) {VIEW_SIZE});
-    player_start_pos = (v2f) {PLAYER_START_POS};
-    v2f_multiply(&player_start_pos, TILE_SIZE);
-    sfSprite_setPosition(game->player->sprite, player_start_pos);
+    player_start = v2f_multiply((v2f){PLAYER_START}, v2f(TILE_SIZE, TILE_SIZE));
+    sfSprite_setPosition(game->player->sprite, player_start);
     sfClock_restart(game->clock);
     return (0);
 }

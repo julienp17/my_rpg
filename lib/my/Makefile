@@ -20,7 +20,8 @@ SRC			=	my_strcmp.c \
 				my_strdupcat.c \
 				my_puterr.c \
 				my_sdup.c \
-				my_str_ends.c
+				my_str_ends.c \
+				my_str_isnum.c
 
 OBJ			=	$(SRC:.c=.o)
 

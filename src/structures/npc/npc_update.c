@@ -9,9 +9,5 @@
 
 void npc_update(npc_t *npc, int delta_time)
 {
-    npc->anim->elapsed += delta_time;
-    if (animation_can_update(npc->anim)) {
-        npc_update_animation(npc);
-        npc->anim->elapsed -= npc->anim->switch_time;
-    }
+    animation_update(npc, (void *)&npc_update_animation, delta_time);
 }

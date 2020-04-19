@@ -27,6 +27,8 @@
     typedef sfSound                         sound_t;
     typedef sfTexture                       texture_t;
     typedef sfTexture                       tileset_t;
+    typedef sfTexture                       spritesheet_t;
+    typedef spritesheet_t                   sheet_t;
     typedef sfVertexArray                   vertex_arr_t;
     typedef sfRenderWindow                  window_t;
     typedef sfEvent                         event_t;
@@ -35,10 +37,10 @@
     typedef sfText                          text_t;
     typedef sfClock                         gclock_t;
 
-    #define v2i(x, y)                       ((v2i) {(x), (y)})
-    #define v2u(x, y)                       ((v2u) {(x), (y)})
-    #define v2f(x, y)                       ((v2f) {(x), (y)})
-    #define v3f(x, y)                       ((v3f) {(x), (y)})
+    #define v2i(x, y)                       ((v2i)   {(x), (y)})
+    #define v2u(x, y)                       ((v2u)   {(x), (y)})
+    #define v2f(x, y)                       ((v2f)   {(x), (y)})
+    #define v3f(x, y)                       ((v3f)   {(x), (y)})
     #define irect(x, y, w, h)               ((irect) {(x), (y), (w), (h)})
     #define frect(x, y, w, h)               ((frect) {(x), (y), (w), (h)})
     #define RGBA(r, g, b, a)                ((sfColor_fromRGBA(r, g, b, a)))
@@ -48,5 +50,7 @@
     v2f v2f_from_str(char const *str, char const sep);
 
     void frect_multiply(frect *rect, float multiplier);
-    void v2f_multiply(v2f *vector, float multiplier);
+    v2f v2f_add(v2f vector1, v2f vector2);
+    v2f v2f_multiply(v2f vector1, v2f vector2);
+    v2i v2f_to_grid(v2f vector, int tile_size);
 #endif

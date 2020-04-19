@@ -23,7 +23,7 @@ map_t *map_create(void)
     map->bottom = NULL;
     map->top = NULL;
     map->objects = NULL;
-    map->npc_tileset = NULL;
+    map->npc_sheet = NULL;
     map->map_tileset = NULL;
     map->npcs = NULL;
     map->warps = NULL;

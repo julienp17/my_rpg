@@ -9,9 +9,5 @@
 
 void player_update(player_t *player, int delta_time)
 {
-    player->anim->elapsed += delta_time;
-    if (animation_can_update(player->anim)) {
-        player_update_animation(player);
-        player->anim->elapsed -= player->anim->switch_time;
-    }
+    animation_update(player, (void *)&player_update_animation, delta_time);
 }

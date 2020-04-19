@@ -36,6 +36,8 @@ static void handle_key_pressed(sfKeyCode key, game_t *game)
 
 static void handle_player_movement(sfKeyCode key, game_t *game)
 {
+    v2f offset = v2f(0, 0);
+
     switch (key) {
     case sfKeyUp:    game->player->orientation = BACK;  break;
     case sfKeyDown:  game->player->orientation = FRONT; break;
@@ -44,8 +46,9 @@ static void handle_player_movement(sfKeyCode key, game_t *game)
     default:                                            break;
     }
     player_update_animation(game->player);
-    if (player_can_move(game->player, game->map, key)) {
-        player_move(game->player, get_offset_by_key(key));
+    offset = get_offset_by_key(key);
+    if (player_can_move(game->player, game->map, offset)) {
+        player_move(game->player, offset);
         handle_wrap(game->map, game->player);
     }
 }

@@ -20,7 +20,9 @@ SRC_F 		=	my_rpg.c \
 				utilities/irect_from_str.c \
 				utilities/frect_from_str.c \
 				utilities/frect_multiply.c \
+				utilities/v2f_add.c \
 				utilities/v2f_multiply.c \
+				utilities/v2f_to_grid.c \
 				utilities/sprite_get_center.c \
 				utilities/sprite_flip.c \
 				file_reading/get_nb_files_in_dir.c \
@@ -32,10 +34,13 @@ SRC_F 		=	my_rpg.c \
 				file_reading/get_pretty_filename.c \
 				structures/animation/animation_create.c \
 				structures/animation/animation_destroy.c \
+				structures/animation/animation_update.c \
 				structures/animation/animation_can_update.c \
 				structures/map/map_create.c \
 				structures/map/map_destroy.c \
 				structures/map/map_load.c \
+				structures/map/map_load_npcs.c \
+				structures/map/map_load_warps.c \
 				structures/map/map_update.c \
 				structures/map/map_update_npcs.c \
 				structures/map/map_draw_layer.c \
@@ -79,7 +84,10 @@ SRC_F 		=	my_rpg.c \
 SRC_UT   	=	$(addprefix $(SRC_UT_D), $(SRC_UT_F))
 OBJ_UT 	 	=	$(SRC_UT:.c=.o)
 SRC_UT_D 	= 	tests/
-SRC_UT_F 	=	test_get_pretty_filename.c \
+SRC_UT_F 	=	test_v2f_multiply.c \
+				test_v2f_add.c \
+				test_v2f_from_str.c \
+				test_v2f_to_grid.c
 
 INC			= 	-I./include/ -I./include/structures/
 
