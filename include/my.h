@@ -14,6 +14,7 @@
     void my_puterr(char const *str);
     void my_strarr_free(char **arr);
 
+    bool my_str_isnum(char const *str);
     bool my_str_ends(char const *str, char const *end);
 
     int my_atoi(char const *str);
