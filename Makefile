@@ -20,7 +20,9 @@ SRC_F 		=	my_rpg.c \
 				utilities/irect_from_str.c \
 				utilities/frect_from_str.c \
 				utilities/frect_multiply.c \
+				utilities/v2f_add.c \
 				utilities/v2f_multiply.c \
+				utilities/v2f_to_grid.c \
 				utilities/sprite_get_center.c \
 				utilities/sprite_flip.c \
 				file_reading/get_nb_files_in_dir.c \
@@ -37,6 +39,8 @@ SRC_F 		=	my_rpg.c \
 				structures/map/map_create.c \
 				structures/map/map_destroy.c \
 				structures/map/map_load.c \
+				structures/map/map_load_npcs.c \
+				structures/map/map_load_warps.c \
 				structures/map/map_update.c \
 				structures/map/map_update_npcs.c \
 				structures/map/map_draw_layer.c \
