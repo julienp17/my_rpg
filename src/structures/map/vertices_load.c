@@ -47,7 +47,7 @@ static int fill_vertices(vertex_arr_t *vertices, tile_t **tiles,
         map_pos.y = row;
         for (uint col = 0 ; tiles[row][col] != TILE_ROW_END_VALUE ; col++) {
             tile_number = tiles[row][col];
-            if (tile_number <= 0)
+            if (tile_number < 0)
                 continue;
             map_pos.x = col;
             tileset_pos.x = tile_number % (texture_size.x / TILE_SIZE);
@@ -77,6 +77,8 @@ static int append_tile(vertex_arr_t *vertices, v2u pos, v2i tile)
     qs[3].texCoords = v2f((tile.x + 1) * TILE_SIZE, tile.y * TILE_SIZE);
     for (uint i = 0 ; i < 4 ; i++) {
         qs[i].color = sfWhite;
+        qs[i].texCoords.x += tile.x * MAP_SPACING;
+        qs[i].texCoords.y += tile.y * MAP_SPACING;
         sfVertexArray_append(vertices, qs[i]);
     }
     free(qs);

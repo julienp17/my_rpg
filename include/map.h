@@ -14,8 +14,9 @@
     #include "warp.h"
 
     #define MAP_DIR_PATH            "assets/maps/"
-    #define MAP_TILESET_PATH        "assets/tilesets/map1.png"
+    #define MAP_TILESET_PATH        "assets/tilesets/onett.png"
     #define NPC_SPRITESHEET_PATH    "assets/spritesheets/npcs.png"
+    #define MAP_SPACING             1
     #define NPC_EXT                 ".npc"
     #define WARP_EXT                ".warp"
     #define CSV_SEP                 ','
@@ -25,20 +26,12 @@
     typedef int tile_t;
     typedef sfVertexArray layer_t;
 
-    typedef enum map_object {
-        COLLISION,
-        NPC,
-        PLAYER_SPAWN,
-        ENEMY_SPAWN,
-        WARP
-    } mpa_object_t;
-
     typedef struct map {
         char *name;
         v2f size;
         tileset_t *map_tileset;
         spritesheet_t *npc_sheet;
-        tile_t **objects;
+        tile_t **collision;
         layer_t *bottom;
         layer_t *top;
         npc_t **npcs;
