@@ -14,8 +14,7 @@ MAIN_F		=	main.c
 SRC			= 	$(addprefix $(SRC_D), $(SRC_F))
 OBJ 		= 	$(SRC:.c=.o)
 SRC_D 		= 	src/
-SRC_F 		=	my_rpg.c \
-				utilities/get_offset_by_key.c \
+SRC_F 		=	utilities/get_offset_by_key.c \
 				utilities/v2f_from_str.c \
 				utilities/irect_from_str.c \
 				utilities/frect_from_str.c \
@@ -51,9 +50,12 @@ SRC_F 		=	my_rpg.c \
 				structures/game/game_create.c \
 				structures/game/game_destroy.c \
 				structures/game/game_load.c \
+				structures/game/game_run.c \
+				structures/game/game_loop.c \
 				structures/game/game_draw.c \
 				structures/game/game_update.c \
 				structures/game/game_update_view.c \
+				structures/game/game_handle_wrap.c \
 				structures/game/game_poll_events.c \
 				structures/game/window_create.c \
 				structures/player/player_create.c \
@@ -62,6 +64,7 @@ SRC_F 		=	my_rpg.c \
 				structures/player/player_draw.c \
 				structures/player/player_can_move.c \
 				structures/player/player_move.c \
+				structures/player/player_get_move_offset.c \
 				structures/player/player_update.c \
 				structures/player/player_update_animation.c \
 				structures/npc/npc_create.c \
