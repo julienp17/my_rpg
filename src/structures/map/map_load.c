@@ -12,13 +12,13 @@
 
 static int load_textures(map_t *map);
 static int load_vertices(map_t *map, char const *map_name);
-static int load_objects(map_t *map, char const *map_name);
+static int load_collisions(map_t *map, char const *map_name);
 
 int map_load(map_t *map, char const *map_name)
 {
     frect map_bounds;
     int (*load_functions[])(map_t *, char const *) = {
-        &load_vertices, &load_objects,
+        &load_vertices, &load_collisions,
         &map_load_npcs, &map_load_warps, NULL
     };
 
@@ -69,13 +69,13 @@ static int load_vertices(map_t *map, char const *map_name)
     return (EXIT_SUCCESS);
 }
 
-static int load_objects(map_t *map, char const *map_name)
+static int load_collisions(map_t *map, char const *map_name)
 {
     char *map_path = NULL;
 
-    map_path = my_sdup(5, MAP_DIR_PATH,map_name, "/", map_name, "_objects.csv");
-    map->objects = tiles_load(map_path);
-    if (map->objects == NULL)
+    map_path = my_sdup(5, MAP_DIR_PATH,map_name, "/",map_name,"_collision.csv");
+    map->collision = tiles_load(map_path);
+    if (map->collision == NULL)
         return (EXIT_FAILURE);
     free(map_path);
     return (EXIT_SUCCESS);
