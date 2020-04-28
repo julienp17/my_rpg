@@ -17,7 +17,7 @@ int main(void)
     window = window_create(WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
     if (window == NULL)
         return (1);
-    status = my_rpg(window);
+    status = game_run(window);
     sfRenderWindow_destroy(window);
     return (status);
 }
