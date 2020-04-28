@@ -7,7 +7,7 @@
 
 #include "npc.h"
 
-void npc_update(npc_t *npc, int delta_time)
+void npc_update(npc_t *npc, float delta_time)
 {
     animation_update(npc, (void *)&npc_update_animation, delta_time);
 }

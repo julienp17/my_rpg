@@ -14,9 +14,9 @@
     #include "warp.h"
 
     #define MAP_DIR_PATH            "assets/maps/"
-    #define MAP_TILESET_PATH        "assets/tilesets/onett.png"
+    #define MAP_TILESET_PATH        "assets/tilesets/map1.png"
     #define NPC_SPRITESHEET_PATH    "assets/spritesheets/npcs.png"
-    #define MAP_SPACING             1
+    #define MAP_SPACING             0
     #define NPC_EXT                 ".npc"
     #define WARP_EXT                ".warp"
     #define CSV_SEP                 ','
@@ -51,8 +51,8 @@
     int map_load_warps(map_t *map, char const *map_name);
     void map_destroy(map_t *map);
 
-    void map_update(map_t *map, int delta_time);
-    void map_update_npcs(map_t *map, int delta_time);
+    void map_update(map_t *map, float delta_time);
+    void map_update_npcs(map_t *map, float delta_time);
     bool map_collided(map_t *map, v2i coords);
     void map_draw_layer(window_t *win, map_t *map, layer_name_t layer_name);
     void map_draw_npcs(window_t *win, map_t *map);

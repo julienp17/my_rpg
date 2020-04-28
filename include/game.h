@@ -27,8 +27,11 @@
     int game_load(game_t *game);
     void game_destroy(game_t *game);
 
+    int game_run(window_t *win);
+    void game_loop(game_t *game);
     void game_poll_events(game_t *game);
     void game_draw(game_t *game);
-    void game_update(game_t *game, int delta_time);
+    void game_update(game_t *game, float delta_time);
     void game_update_view(game_t *game);
+    void game_handle_wrap(map_t *map, player_t *player);
 #endif
