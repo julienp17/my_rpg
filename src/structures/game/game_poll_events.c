@@ -38,7 +38,7 @@ static void handle_key_pressed(sfKeyCode key, game_t *game)
         }
         game->player->move_speed = 100.0f;
     }
-    if (key == sfKeyB)
+    if (game->player->move_speed > 0.0 && key == sfKeyB)
         game->player->move_speed = 200.0f;
 }
 
@@ -46,7 +46,7 @@ static void handle_key_released(sfKeyCode key, game_t *game)
 {
     if (is_movement_key(key))
         game->player->move_speed = 0.0f;
-    if (key == sfKeyB)
+    if (game->player->move_speed > 0.0 && key == sfKeyB)
         game->player->move_speed = 100.0f;
 }
 
