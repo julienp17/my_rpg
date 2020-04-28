@@ -10,17 +10,17 @@
 
     #include <stdbool.h>
 
-    #define DEFAULT_SWITCH_TIME     300
+    #define DEFAULT_SWITCH_TIME     0.5
 
     typedef struct animation {
-        int elapsed;
-        int switch_time;
+        float elapsed;
+        float switch_time;
     } animation_t;
 
-    animation_t *animation_create(int switch_time);
+    animation_t *animation_create(float switch_time);
     void animation_destroy(animation_t *animation);
 
     void animation_update(void *entity, void (*anim_func)(void *),
-                        int delta_time);
+                        float delta_time);
     bool animation_can_update(animation_t *animation);
 #endif
