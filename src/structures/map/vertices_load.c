@@ -77,6 +77,8 @@ static int append_tile(vertex_arr_t *vertices, v2u pos, v2i tile)
     qs[3].texCoords = v2f((tile.x + 1) * TILE_SIZE, tile.y * TILE_SIZE);
     for (uint i = 0 ; i < 4 ; i++) {
         qs[i].color = sfWhite;
+        qs[i].texCoords.x += tile.x * MAP_SPACING;
+        qs[i].texCoords.y += tile.y * MAP_SPACING;
         sfVertexArray_append(vertices, qs[i]);
     }
     free(qs);

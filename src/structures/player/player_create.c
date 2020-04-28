@@ -23,10 +23,11 @@ player_t *player_create(void)
         my_puterr("Couldn't allocate memory for player sprite.\n");
         return (NULL);
     }
-    player->anim = animation_create(DEFAULT_SWITCH_TIME);
+    player->anim = animation_create(PLAYER_ANIM_SWITCH_TIME);
     if (player->anim == NULL)
         return (NULL);
     player->tileset = NULL;
-    player->orientation = FRONT;
+    player->orientation = sfKeyDown;
+    player->move_speed = 0.0f;
     return (player);
 }

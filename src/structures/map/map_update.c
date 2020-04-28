@@ -7,7 +7,7 @@
 
 #include "map.h"
 
-void map_update(map_t *map, int delta_time)
+void map_update(map_t *map, float delta_time)
 {
     map_update_npcs(map, delta_time);
 }

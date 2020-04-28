@@ -2,15 +2,13 @@
 ** EPITECH PROJECT, 2020
 ** MUL_my_rpg_2019
 ** File description:
-** my_rpg main file
+** Launch the game
 */
 
+#include <stdio.h>
 #include "game.h"
-#include "my_rpg.h"
 
-static void game_loop(game_t *game);
-
-int my_rpg(window_t *win)
+int game_run(window_t *win)
 {
     game_t *game = NULL;
 
@@ -22,14 +20,4 @@ int my_rpg(window_t *win)
     while (sfRenderWindow_isOpen(game->win))
         game_loop(game);
     return (0);
-}
-
-static void game_loop(game_t *game)
-{
-    int delta_time = 0;
-
-    game_poll_events(game);
-    delta_time = sfTime_asMilliseconds(sfClock_restart(game->clock));
-    game_update(game, delta_time);
-    game_draw(game);
 }

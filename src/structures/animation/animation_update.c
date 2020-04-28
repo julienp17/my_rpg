@@ -8,7 +8,7 @@
 #include "animation.h"
 #include "npc.h"
 
-void animation_update(void *entity, void (*anim_func)(void *), int delta_time)
+void animation_update(void *entity, void (*anim_func)(void *), float delta_time)
 {
     ((npc_t *)entity)->anim->elapsed += delta_time;
     if (animation_can_update(((npc_t *)entity)->anim)) {

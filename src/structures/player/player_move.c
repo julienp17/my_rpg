@@ -5,11 +5,13 @@
 ** Move the player
 */
 
+#include "my_rpg.h"
 #include "player.h"
 
-void player_move(player_t *player, v2f offset)
+void player_move(player_t *player, float delta_time)
 {
-    offset.x *= 32;
-    offset.y *= 32;
+    v2f offset = v2f(0, 0);
+
+    offset = player_get_move_offset(player, delta_time);
     sfSprite_move(player->sprite, offset);
 }

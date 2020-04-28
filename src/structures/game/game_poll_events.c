@@ -11,8 +11,7 @@
 
 static bool is_movement_key(sfKeyCode key);
 static void handle_key_pressed(sfKeyCode key, game_t *game);
-static void handle_player_movement(sfKeyCode key, game_t *game);
-static void handle_wrap(map_t *map, player_t *player);
+static void handle_key_released(sfKeyCode key, game_t *game);
 
 void game_poll_events(game_t *game)
 {
@@ -21,8 +20,10 @@ void game_poll_events(game_t *game)
     while (sfRenderWindow_pollEvent(game->win, &event)) {
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(game->win);
-        else if (event.type == sfEvtKeyPressed)
+        if (event.type == sfEvtKeyPressed)
             handle_key_pressed(event.key.code, game);
+        if (event.type == sfEvtKeyReleased)
+            handle_key_released(event.key.code, game);
     }
 }
 
@@ -30,42 +31,23 @@ static void handle_key_pressed(sfKeyCode key, game_t *game)
 {
     if (key == sfKeyEscape)
         sfRenderWindow_close(game->win);
-    else if (is_movement_key(key))
-        handle_player_movement(key, game);
+    if (is_movement_key(key)) {
+        if (game->player->orientation != key) {
+            game->player->orientation = key;
+            player_update_animation(game->player);
+        }
+        game->player->move_speed = 100.0f;
+    }
+    if (game->player->move_speed > 0.0 && key == sfKeyB)
+        game->player->move_speed = 200.0f;
 }
 
-static void handle_player_movement(sfKeyCode key, game_t *game)
+static void handle_key_released(sfKeyCode key, game_t *game)
 {
-    v2f offset = v2f(0, 0);
-
-    switch (key) {
-    case sfKeyUp:    game->player->orientation = BACK;  break;
-    case sfKeyDown:  game->player->orientation = FRONT; break;
-    case sfKeyLeft:  game->player->orientation = LEFT;  break;
-    case sfKeyRight: game->player->orientation = RIGHT; break;
-    default:                                            break;
-    }
-    player_update_animation(game->player);
-    offset = get_offset_by_key(key);
-    if (player_can_move(game->player, game->map, offset)) {
-        player_move(game->player, offset);
-        handle_wrap(game->map, game->player);
-    }
-}
-
-static void handle_wrap(map_t *map, player_t *player)
-{
-    warp_t *warp = NULL;
-    v2f pos = v2f(0, 0);
-
-    pos = sfSprite_getPosition(player->sprite);
-    for (uint i = 0 ; map->warps[i] && warp == NULL ; i++)
-        if (sfFloatRect_contains(&(map->warps[i]->zone), pos.x, pos.y))
-            warp = map->warps[i];
-    if (warp) {
-        map_load(map, warp->map_name);
-        sfSprite_setPosition(player->sprite, warp->dest);
-    }
+    if (is_movement_key(key))
+        game->player->move_speed = 0.0f;
+    if (game->player->move_speed > 0.0 && key == sfKeyB)
+        game->player->move_speed = 100.0f;
 }
 
 static bool is_movement_key(sfKeyCode key)
