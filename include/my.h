@@ -29,5 +29,6 @@
     char *my_strdup(char const *src);
     char *my_strdupcat(char const *s1, char const *s2);
 
+    char **my_strarr_dup(char **arr);
     char **my_str_to_word_array(char const *str, char const sep);
 #endif

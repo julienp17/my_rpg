@@ -21,7 +21,8 @@ SRC			=	my_strcmp.c \
 				my_puterr.c \
 				my_sdup.c \
 				my_str_ends.c \
-				my_str_isnum.c
+				my_str_isnum.c \
+				my_strarr_dup.c \
 
 OBJ			=	$(SRC:.c=.o)
 
