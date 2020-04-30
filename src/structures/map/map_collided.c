@@ -10,8 +10,5 @@
 
 bool map_collided(map_t *map, v2i coord)
 {
-    tile_t object = 0;
-
-    object = map->objects[coord.y][coord.x];
-    return (object == COLLISION || object == NPC);
+    return (map->collisions[coord.y][coord.x] >= 0);
 }

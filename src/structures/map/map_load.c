@@ -73,9 +73,9 @@ static int load_objects(map_t *map, char const *map_name)
 {
     char *map_path = NULL;
 
-    map_path = my_sdup(5, MAP_DIR_PATH,map_name, "/", map_name, "_objects.csv");
-    map->objects = tiles_load(map_path);
-    if (map->objects == NULL)
+    map_path = my_sdup(5, MAP_DIR_PATH,map_name, "/",map_name,"_collision.csv");
+    map->collisions = tiles_load(map_path);
+    if (map->collisions == NULL)
         return (EXIT_FAILURE);
     free(map_path);
     return (EXIT_SUCCESS);
