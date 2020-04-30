@@ -11,15 +11,10 @@ static bool is_out_of_bounds(v2i grid_pos, map_t *map);
 
 bool player_can_interact(player_t *player, map_t *map)
 {
-    v2f player_pos = v2f(0.0, 0.0);
     v2i grid_pos = v2i(0, 0);
-    v2i dir = v2i(0, 0);
     npc_t *npc = NULL;
 
-    dir = get_dir_by_key(player->orientation);
-    player_pos = sfSprite_getPosition(player->sprite);
-    grid_pos = v2f_to_grid(player_pos, TILE_SIZE);
-    grid_pos = v2i_add(grid_pos, dir);
+    grid_pos = player_get_facing_tile(player);
     if (is_out_of_bounds(grid_pos, map))
         return (false);
     npc = map_get_npc_from_grid(map, grid_pos);
