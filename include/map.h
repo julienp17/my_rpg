@@ -25,20 +25,12 @@
     typedef int tile_t;
     typedef sfVertexArray layer_t;
 
-    typedef enum map_object {
-        COLLISION,
-        NPC,
-        PLAYER_SPAWN,
-        ENEMY_SPAWN,
-        WARP
-    } mpa_object_t;
-
     typedef struct map {
         char *name;
         v2f size;
         tileset_t *map_tileset;
         spritesheet_t *npc_sheet;
-        tile_t **objects;
+        tile_t **collisions;
         layer_t *bottom;
         layer_t *top;
         npc_t **npcs;
