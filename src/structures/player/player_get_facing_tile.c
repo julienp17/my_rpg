@@ -14,7 +14,7 @@ v2i player_get_facing_tile(player_t *player)
     v2i dir = v2i(0, 0);
 
     player_pos = sprite_get_center(player->sprite);
-    grid_pos = v2f_to_grid(player_pos, TILE_SIZE);
+    grid_pos = v2f_to_grid(player_pos);
     dir = get_dir_by_key(player->orientation);
     grid_pos = v2i_add(grid_pos, dir);
     return (grid_pos);

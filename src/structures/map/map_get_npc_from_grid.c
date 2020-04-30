@@ -15,7 +15,7 @@ npc_t *map_get_npc_from_grid(map_t *map, v2i grid_pos)
 
     for (uint i = 0 ; map->npcs[i] && npc == NULL ; i++) {
         npc_pos = sfSprite_getPosition(map->npcs[i]->sprite);
-        npc_grid_pos = v2f_to_grid(npc_pos, TILE_SIZE);
+        npc_grid_pos = v2f_to_grid(npc_pos);
         if (v2i_eq(npc_grid_pos, grid_pos))
             npc = map->npcs[i];
     }
