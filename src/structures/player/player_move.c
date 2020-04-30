@@ -7,10 +7,10 @@
 
 #include "player.h"
 
-void player_move(player_t *player)
+void player_move(player_t *player, int delta_time)
 {
     v2f offset = v2f(0.0, 0.0);
 
-    offset = player_get_move_offset(player);
+    offset = player_get_move_offset(player, delta_time);
     sfSprite_move(player->sprite, offset);
 }
