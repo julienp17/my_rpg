@@ -29,13 +29,14 @@
     } player_t;
 
     player_t *player_create(void);
-    int player_load(player_t *player, char const *tileset_path);
+    int  player_load(player_t *player, char const *tileset_path);
     void player_destroy(player_t *player);
 
     bool player_can_move(player_t *player, map_t *map);
     bool player_is_moving(player_t *player);
     bool player_can_interact(player_t *player, map_t *map);
 
+    v2i  player_get_facing_tile(player_t *player);
     v2f  player_get_move_offset(player_t *player);
     void player_move(player_t *player);
     void player_update(player_t *player, map_t *map, int delta_time);
