@@ -15,7 +15,6 @@
     #define PLAYER_START_X          13
     #define PLAYER_START_Y          9
     #define PLAYER_START            PLAYER_START_X, PLAYER_START_Y
-    #define PLAYER_TILE_SIZE        32
     #define PLAYER_SHEET_PATH       "assets/spritesheets/player.png"
     #define PLAYER_SHEET_ROWS       4
     #define PLAYER_SHEET_COLS       3
