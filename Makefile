@@ -64,6 +64,7 @@ SRC_F 		=	my_rpg.c \
 				structures/player/player_destroy.c \
 				structures/player/player_load.c \
 				structures/player/player_draw.c \
+				structures/player/player_get_facing_tile.c \
 				structures/player/player_get_move_offset.c \
 				structures/player/player_can_interact.c \
 				structures/player/player_can_move.c \
