@@ -25,7 +25,7 @@ static bool is_out_of_bounds(v2i grid_pos, map_t *map)
 {
     v2i map_grid_size = v2i(0, 0);
 
-    map_grid_size = v2f_to_grid(map->size, TILE_SIZE);
+    map_grid_size = v2f_to_grid(map->size);
     return (
         grid_pos.x < 0
         || grid_pos.y < 0
