@@ -53,4 +53,8 @@
     v2f v2f_add(v2f vector1, v2f vector2);
     v2f v2f_multiply(v2f vector1, v2f vector2);
     v2i v2f_to_grid(v2f vector, int tile_size);
+
+    v2f get_dir_by_key(sfKeyCode key);
+    v2f sprite_get_center(sprite_t *sprite);
+    void sprite_flip(sprite_t *sprite);
 #endif

@@ -31,4 +31,5 @@
     void game_draw(game_t *game);
     void game_update(game_t *game, int delta_time);
     void game_update_view(game_t *game);
+    int  game_handle_warps(map_t *map, player_t *player);
 #endif
