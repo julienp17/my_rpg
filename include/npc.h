@@ -13,11 +13,12 @@
 
     #define NPC_EXT                 ".npc"
     #define NPC_SWITCH_TIME         500
+    #define NPC_NAME_OFFSET         5
 
     typedef struct npc {
         animation_t *anim;
         char *name;
-        char *text;
+        char **text;
         sprite_t *sprite;
     } npc_t;
 
@@ -26,6 +27,7 @@
     int npc_load(npc_t *npc, char const *pathname, tileset_t *npc_tileset);
 
     void npc_draw(window_t *win, npc_t *npc);
+    void npc_draw_text(window_t *win, npc_t *npc, font_t *font);
     void npc_update(npc_t *npc, int delta_time);
     void npc_update_animation(npc_t *npc);
 #endif
