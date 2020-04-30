@@ -7,7 +7,6 @@
 
 #include <stdlib.h>
 #include "game.h"
-#include "my_rpg.h"
 
 int game_load(game_t *game)
 {

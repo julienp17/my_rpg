@@ -6,7 +6,7 @@
 */
 
 #include "player.h"
-#include "my_rpg.h"
+#include "game.h"
 
 void player_update(player_t *player, map_t *map, int delta_time)
 {

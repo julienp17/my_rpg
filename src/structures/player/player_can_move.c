@@ -8,7 +8,6 @@
 #include <stdbool.h>
 #include "player.h"
 #include "map.h"
-#include "my_rpg.h"
 
 static bool is_out_of_bounds(v2f new_pos, v2i player_size, map_t *map);
 static bool tile_collided(v2f new_pos, v2i player_size, map_t *map, v2f offset);

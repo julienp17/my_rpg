@@ -6,7 +6,6 @@
 */
 
 #include "game.h"
-#include "my_rpg.h"
 
 void game_update(game_t *game, int delta_time)
 {

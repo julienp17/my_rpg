@@ -7,7 +7,6 @@
 
 #include <SFML/Graphics.h>
 #include "game.h"
-#include "my_rpg.h"
 
 static bool is_movement_key(sfKeyCode key);
 static void handle_key_pressed(sfKeyCode key, game_t *game);
@@ -44,12 +43,16 @@ static void handle_key_pressed(sfKeyCode key, game_t *game)
         else if (player_can_interact(game->player, game->map))
             game->player->is_interacting = true;
     }
+    // if (key == sfKeyA && player_is_moving(game->player))
+    //     game->player->move_speed = PLAYER_RUN_MOVE_SPEED;
 }
 
 static void handle_key_released(sfKeyCode key, game_t *game)
 {
     if (is_movement_key(key))
         game->player->move_speed = 0;
+    // if (key == sfKeyA && player_is_moving(game->player))
+    //     game->player->move_speed = PLAYER_WALK_MOVE_SPEED;
 }
 
 static bool is_movement_key(sfKeyCode key)
