@@ -31,12 +31,18 @@ static void handle_key_pressed(sfKeyCode key, game_t *game)
 {
     if (key == sfKeyEscape)
         sfRenderWindow_close(game->win);
-    else if (is_movement_key(key)) {
+    if (is_movement_key(key) && game->player->is_interacting == false) {
         if (game->player->orientation != key) {
             game->player->orientation = key;
             player_update_animation(game->player);
         }
         game->player->move_speed = 1;
+    }
+    if (key == sfKeyE) {
+        if (game->player->is_interacting)
+            game->player->is_interacting = false;
+        else if (player_can_interact(game->player, game->map))
+            game->player->is_interacting = true;
     }
 }
 
