@@ -63,4 +63,6 @@
     bool map_collided(map_t *map, v2i coords);
     void map_draw_layer(window_t *win, map_t *map, layer_name_t layer_name);
     void map_draw_npcs(window_t *win, map_t *map);
+
+    npc_t *map_get_npc_from_grid(map_t *map, v2i grid_pos);
 #endif

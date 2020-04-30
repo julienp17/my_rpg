@@ -21,7 +21,7 @@ bool player_can_move(player_t *player, map_t *map)
     v2f offset      = v2f(0.0, 0.0);
     irect texture_rect = irect(0, 0, 0, 0);
 
-    if (player->move_speed == 0)
+    if (player_is_moving(player) == false || player->is_interacting)
         return (false);
     player_pos    = sfSprite_getPosition(player->sprite);
     texture_rect  = sfSprite_getTextureRect(player->sprite);

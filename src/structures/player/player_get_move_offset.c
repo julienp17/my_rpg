@@ -10,7 +10,7 @@
 v2f player_get_move_offset(player_t *player)
 {
     v2f offset = v2f(0.0, 0.0);
-    v2f dir = v2f(0.0, 0.0);
+    v2i dir = v2i(0, 0);
 
     dir = get_dir_by_key(player->orientation);
     offset.x = dir.x * player->move_speed;
