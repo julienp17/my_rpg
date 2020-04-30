@@ -32,7 +32,10 @@ static void handle_key_pressed(sfKeyCode key, game_t *game)
     if (key == sfKeyEscape)
         sfRenderWindow_close(game->win);
     else if (is_movement_key(key)) {
-        game->player->orientation = key;
+        if (game->player->orientation != key) {
+            game->player->orientation = key;
+            player_update_animation(game->player);
+        }
         game->player->move_speed = 1;
     }
 }
