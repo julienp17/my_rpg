@@ -12,7 +12,7 @@
 int assets_load(assets_t *assets)
 {
     int (*load_funcs[])(assets_t *) = {
-        assets_load_fonts, assets_load_music, NULL
+        &assets_load_fonts, &assets_load_music, NULL
     };
 
     for (uint i = 0 ; load_funcs[i] ; i++)
