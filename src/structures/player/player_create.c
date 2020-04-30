@@ -29,5 +29,6 @@ player_t *player_create(void)
     player->tileset = NULL;
     player->orientation = sfKeyDown;
     player->move_speed = 0;
+    player->is_interacting = false;
     return (player);
 }
