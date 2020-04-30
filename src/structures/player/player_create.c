@@ -27,6 +27,7 @@ player_t *player_create(void)
     if (player->anim == NULL)
         return (NULL);
     player->tileset = NULL;
-    player->orientation = FRONT;
+    player->orientation = sfKeyDown;
+    player->move_speed = 0;
     return (player);
 }

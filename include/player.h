@@ -20,27 +20,22 @@
     #define PLAYER_SHEET_ROWS       4
     #define PLAYER_SHEET_COLS       3
 
-    typedef enum orientation {
-        FRONT,
-        BACK,
-        LEFT,
-        RIGHT,
-    } orientation_t;
-
     typedef struct player {
         animation_t *anim;
         sprite_t *sprite;
         texture_t *tileset;
-        orientation_t orientation;
+        sfKeyCode orientation;
+        int move_speed;
     } player_t;
 
     player_t *player_create(void);
     int player_load(player_t *player, char const *tileset_path);
     void player_destroy(player_t *player);
 
-    void player_draw(window_t *win, player_t *player);
-    bool player_can_move(player_t *player, map_t *map, v2f offset);
-    void player_move(player_t *player, v2f offset);
-    void player_update(player_t *player, int delta_time);
+    v2f  player_get_move_offset(player_t *player);
+    bool player_can_move(player_t *player, map_t *map);
+    void player_move(player_t *player);
+    void player_update(player_t *player, map_t *map, int delta_time);
     void player_update_animation(player_t *player);
+    void player_draw(window_t *win, player_t *player);
 #endif

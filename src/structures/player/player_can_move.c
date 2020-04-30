@@ -13,18 +13,22 @@
 static bool is_out_of_bounds(v2f new_pos, v2i player_size, map_t *map);
 static bool tile_collided(v2f new_pos, v2i player_size, map_t *map, v2f offset);
 
-bool player_can_move(player_t *player, map_t *map, v2f offset)
+bool player_can_move(player_t *player, map_t *map)
 {
-    v2f player_pos;
-    v2i player_size;
-    v2f new_pos;
-    sfIntRect texture_rect;
+    v2i player_size = v2i(0, 0);
+    v2f player_pos  = v2f(0.0, 0.0);
+    v2f new_pos     = v2f(0.0, 0.0);
+    v2f offset      = v2f(0.0, 0.0);
+    irect texture_rect = irect(0, 0, 0, 0);
 
+    if (player->move_speed == 0)
+        return (false);
     player_pos    = sfSprite_getPosition(player->sprite);
     texture_rect  = sfSprite_getTextureRect(player->sprite);
     player_size.x = texture_rect.width;
     player_size.y = texture_rect.height;
-    new_pos = v2f_add(player_pos, offset);
+    offset        = player_get_move_offset(player);
+    new_pos       = v2f_add(player_pos, offset);
     if (is_out_of_bounds(new_pos, player_size, map))
         return (false);
     if (tile_collided(new_pos, player_size, map, offset))
@@ -44,7 +48,7 @@ static bool is_out_of_bounds(v2f new_pos, v2i player_size, map_t *map)
 
 static bool tile_collided(v2f new_pos, v2i player_size, map_t *map, v2f offset)
 {
-    v2i new_pos_grid;
+    v2i new_pos_grid = v2i(0, 0);
 
     new_pos_grid = v2f_to_grid(new_pos, TILE_SIZE);
     if (offset.x > 0)
