@@ -26,7 +26,7 @@
         sprite_t *sprite;
         texture_t *tileset;
         sfKeyCode orientation;
-        int move_speed;
+        float move_speed;
         bool is_interacting;
     } player_t;
 

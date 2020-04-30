@@ -9,5 +9,5 @@
 
 bool player_is_moving(player_t *player)
 {
-    return (player->move_speed != 0);
+    return (player->move_speed > 0.0f);
 }
