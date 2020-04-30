@@ -24,5 +24,6 @@ int player_load(player_t *player, char const *tileset_path)
     sfSprite_setTexture(player->sprite, player->tileset, sfFalse);
     sfSprite_setTextureRect(player->sprite, sprite_rect);
     sfSprite_setPosition(player->sprite, v2f(0, 0));
+    player_update_animation(player);
     return (0);
 }
