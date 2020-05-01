@@ -43,8 +43,8 @@ SRC_F 		=	utilities/get_dir_by_key.c \
 				structures/game/game_create.c \
 				structures/game/game_load.c \
 				structures/game/game_destroy.c \
-				structures/game/game_loop.c \
 				structures/game/game_run.c \
+				structures/game/ingame/ingame_run.c \
 				structures/game/ingame/ingame_draw.c \
 				structures/game/ingame/ingame_handle_warps.c \
 				structures/game/ingame/ingame_poll_events.c \
@@ -91,6 +91,14 @@ SRC_F 		=	utilities/get_dir_by_key.c \
 				structures/player/player_move.c \
 				structures/player/player_update_animation.c \
 				structures/player/player_update.c \
+				structures/start_menu/start_menu_create.c \
+				structures/start_menu/start_menu_load.c \
+				structures/start_menu/start_menu_destroy.c \
+				structures/start_menu/start_menu_run.c \
+				structures/start_menu/start_menu_loop.c \
+				structures/start_menu/start_menu_draw.c \
+				structures/start_menu/start_menu_poll_events.c \
+				structures/start_menu/start_menu_update.c \
 				structures/warp/warp_create.c \
 				structures/warp/warp_destroy.c \
 				structures/warp/warp_load.c \

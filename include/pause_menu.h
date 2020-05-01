@@ -12,6 +12,7 @@
     #include "button.h"
 
     typedef struct pause_menu {
+        button_t *start_menu;
         button_t *quit;
     } pause_menu_t;
 

@@ -46,10 +46,10 @@
     int game_load(game_t *game);
     void game_destroy(game_t *game);
     int game_run(game_t *game);
-    void game_loop(game_t *game);
 
+    void ingame_run(game_t *game);
     void ingame_poll_events(game_t *game);
-    void ingame_loop(game_t *game, int delta_time);
+    void ingame_loop(game_t *game);
     void ingame_draw(game_t *game);
     void ingame_update(game_t *game, int delta_time);
     void ingame_update_view(game_t *game);
