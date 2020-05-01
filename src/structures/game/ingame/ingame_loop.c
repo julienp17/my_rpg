@@ -7,8 +7,11 @@
 
 #include "game.h"
 
-void ingame_loop(game_t *game, int delta_time)
+void ingame_loop(game_t *game)
 {
+    int delta_time = 0;
+
+    delta_time = sfTime_asMilliseconds(sfClock_restart(game->clock));
     ingame_poll_events(game);
     ingame_update(game, delta_time);
     sfRenderWindow_clear(game->win, sfBlack);
