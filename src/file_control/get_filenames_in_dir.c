@@ -7,14 +7,13 @@
 
 #include <dirent.h>
 #include <stdlib.h>
-#include "file_reading.h"
+#include "file_control.h"
 #include "my.h"
 
 static char **allocate_filenames(char const *dir_path);
-static char **get_filenames_from_dir(char const *dir_path, DIR *dir,
-                                    char const *ext);
+static char **get_filenames_from_dir(char const *dir_path, DIR *dir);
 
-char **get_filenames_ext(char const *dir_path, char const *ext)
+char **get_filenames_in_dir(char const *dir_path)
 {
     char **file_names = NULL;
     DIR *dir = NULL;
@@ -24,7 +23,7 @@ char **get_filenames_ext(char const *dir_path, char const *ext)
         my_puterr("Couldn't open directory for some reason.\n");
         return (NULL);
     }
-    file_names = get_filenames_from_dir(dir_path, dir, ext);
+    file_names = get_filenames_from_dir(dir_path, dir);
     if (closedir(dir) == -1) {
         my_puterr("Couldn't close directoy for some reason.\n");
         return (NULL);
@@ -32,8 +31,7 @@ char **get_filenames_ext(char const *dir_path, char const *ext)
     return (file_names);
 }
 
-static char **get_filenames_from_dir(char const *dir_path, DIR *dir,
-                                    char const *ext)
+static char **get_filenames_from_dir(char const *dir_path, DIR *dir)
 {
     char **file_names = NULL;
     char *file_name = NULL;
@@ -46,8 +44,6 @@ static char **get_filenames_from_dir(char const *dir_path, DIR *dir,
     while ((dir_entry = readdir(dir)) != NULL) {
         file_name = dir_entry->d_name;
         if (my_strcmp(file_name, ".") == 0 || my_strcmp(file_name, "..") == 0)
-            continue;
-        if (!my_str_ends(file_name, ext))
             continue;
         file_names[file_name_index] = my_strdup(file_name);
         file_name_index++;

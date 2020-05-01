@@ -8,7 +8,7 @@
 #include <SFML/Graphics.h>
 #include "assets.h"
 #include "my.h"
-#include "file_reading.h"
+#include "file_control.h"
 
 int assets_load_fonts(assets_t *assets)
 {

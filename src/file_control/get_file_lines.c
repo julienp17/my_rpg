@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-#include "file_reading.h"
+#include "file_control.h"
 #include "my.h"
 
 char **get_file_lines(char const *pathname)

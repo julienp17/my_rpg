@@ -10,7 +10,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include "my.h"
-#include "file_reading.h"
+#include "file_control.h"
 
 char *get_file_buffer(char const *filepath)
 {
