@@ -10,7 +10,7 @@
 
     #include <stdbool.h>
 
-    #define DEFAULT_SWITCH_TIME     300
+    #define DEFAULT_SWITCH_TIME     180
 
     typedef struct animation {
         int elapsed;
