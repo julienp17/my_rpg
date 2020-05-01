@@ -7,9 +7,9 @@
 
 #include "game.h"
 
-void game_update(game_t *game, int delta_time)
+void ingame_update(game_t *game, int delta_time)
 {
     map_update(game->map, delta_time);
     player_update(game->player, game->map, delta_time);
-    game_update_view(game);
+    ingame_update_view(game);
 }

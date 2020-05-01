@@ -5,20 +5,19 @@
 ** Poll events when the game is playing
 */
 
-#include <SFML/Graphics.h>
 #include "game.h"
 
 static bool is_movement_key(sfKeyCode key);
 static void handle_key_pressed(sfKeyCode key, game_t *game);
 static void handle_key_released(sfKeyCode key, game_t *game);
 
-void game_poll_events(game_t *game)
+void ingame_poll_events(game_t *game)
 {
     sfEvent event;
 
-    while (sfRenderWindow_pollEvent(game->win, &event)) {
+    while (game->state == INGAME && POLL_EVENT(game->win, &event)) {
         if (event.type == sfEvtClosed)
-            sfRenderWindow_close(game->win);
+            game->state = QUIT;
         if (event.type == sfEvtKeyPressed)
             handle_key_pressed(event.key.code, game);
         else if (event.type == sfEvtKeyReleased)
@@ -28,8 +27,10 @@ void game_poll_events(game_t *game)
 
 static void handle_key_pressed(sfKeyCode key, game_t *game)
 {
-    if (key == sfKeyEscape)
-        sfRenderWindow_close(game->win);
+    if (key == sfKeyEscape) {
+        game->state = PAUSE_MENU;
+        game->player->move_speed = 0.0f;
+    }
     if (is_movement_key(key) && game->player->is_interacting == false) {
         if (game->player->orientation != key) {
             game->player->orientation = key;

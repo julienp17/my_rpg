@@ -9,10 +9,9 @@
 
 static void draw_npc_text(game_t *game);
 
-void game_draw(game_t *game)
+void ingame_draw(game_t *game)
 {
     sfRenderWindow_setView(game->win, game->view);
-    sfRenderWindow_clear(game->win, sfBlack);
     map_draw_layer(game->win, game->map, BOTTOM);
     map_draw_npcs(game->win, game->map);
     player_draw(game->win, game->player);
@@ -20,7 +19,6 @@ void game_draw(game_t *game)
     sfRenderWindow_setView(game->win, sfRenderWindow_getDefaultView(game->win));
     if (game->player->is_interacting)
         draw_npc_text(game);
-    sfRenderWindow_display(game->win);
 }
 
 static void draw_npc_text(game_t *game)

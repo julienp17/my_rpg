@@ -11,10 +11,10 @@ int game_run(game_t *game)
 {
     if (game_load(game) == -1)
         return (-1);
-    sfMusic_play(MUSIC("onett"));
     sfMusic_setLoop(MUSIC("onett"), sfTrue);
     sfMusic_setVolume(MUSIC("onett"), 40.0f);
-    while (sfRenderWindow_isOpen(game->win))
+    sfMusic_play(MUSIC("onett"));
+    while (game->state != QUIT)
         game_loop(game);
     return (0);
 }

@@ -13,7 +13,6 @@ void pause_menu_loop(game_t *game, pause_menu_t *pause_menu)
     pause_menu_poll_events(game);
     pause_menu_update(game, pause_menu);
     sfRenderWindow_clear(game->win, sfBlack);
-    game_draw(game);
     pause_menu_draw(game, pause_menu);
     sfRenderWindow_display(game->win);
 }

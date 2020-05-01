@@ -25,6 +25,7 @@
     #define VIEW_SIZE           VIEW_WIDTH, VIEW_HEIGHT
 
     enum game_state {
+        QUIT,
         START_MENU,
         PAUSE_MENU,
         INGAME
@@ -40,16 +41,17 @@
         enum game_state state;
     } game_t;
 
-    game_t *game_create(void);
     window_t *window_create(uint width, uint height, char const *title);
+    game_t *game_create(void);
     int game_load(game_t *game);
     void game_destroy(game_t *game);
-
     int game_run(game_t *game);
-    void game_poll_events(game_t *game);
     void game_loop(game_t *game);
-    void game_draw(game_t *game);
-    void game_update(game_t *game, int delta_time);
-    void game_update_view(game_t *game);
-    int  game_handle_warps(map_t *map, player_t *player);
+
+    void ingame_poll_events(game_t *game);
+    void ingame_loop(game_t *game, int delta_time);
+    void ingame_draw(game_t *game);
+    void ingame_update(game_t *game, int delta_time);
+    void ingame_update_view(game_t *game);
+    int  ingame_handle_warps(map_t *map, player_t *player);
 #endif

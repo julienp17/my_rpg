@@ -7,7 +7,7 @@
 
 #include "game.h"
 
-void game_update_view(game_t *game)
+void ingame_update_view(game_t *game)
 {
     v2f view_size = v2f(0, 0);
     v2f center = v2f(0, 0);
@@ -23,5 +23,4 @@ void game_update_view(game_t *game)
     if (center.y + view_size.y / 2 > game->map->size.y)
         center.y = game->map->size.y - view_size.y / 2;
     sfView_setCenter(game->view, center);
-    sfRenderWindow_setView(game->win, game->view);
 }
