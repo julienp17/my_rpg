@@ -46,7 +46,9 @@
     #define v3f(x, y)                       ((v3f)   {(x), (y)})
     #define irect(x, y, w, h)               ((irect) {(x), (y), (w), (h)})
     #define frect(x, y, w, h)               ((frect) {(x), (y), (w), (h)})
+    #define POLL_EVENT(win, event)          sfRenderWindow_pollEvent(win, event)
     #define RGBA(r, g, b, a)                ((sfColor_fromRGBA(r, g, b, a)))
+    #define TRANSPARENT_GREY                RGBA(0, 0, 0, 125)
 
     bool v2i_eq(v2i vector1, v2i vector2);
 
