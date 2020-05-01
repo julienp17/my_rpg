@@ -10,6 +10,7 @@
 
     #include <SFML/Graphics.h>
     #include <SFML/Audio.h>
+    #include <stdbool.h>
 
     #define WIN_BPP                         32
 
@@ -25,6 +26,7 @@
     typedef sfFont                          font_t;
     typedef sfMusic                         music_t;
     typedef sfSound                         sound_t;
+    typedef sfSoundBuffer                   sound_buf_t;
     typedef sfTexture                       texture_t;
     typedef sfTexture                       tileset_t;
     typedef sfTexture                       spritesheet_t;
@@ -36,6 +38,7 @@
     typedef sfView                          view_t;
     typedef sfText                          text_t;
     typedef sfClock                         gclock_t;
+    typedef sfRectangleShape                rect_t;
 
     #define v2i(x, y)                       ((v2i)   {(x), (y)})
     #define v2u(x, y)                       ((v2u)   {(x), (y)})
@@ -45,12 +48,19 @@
     #define frect(x, y, w, h)               ((frect) {(x), (y), (w), (h)})
     #define RGBA(r, g, b, a)                ((sfColor_fromRGBA(r, g, b, a)))
 
+    bool v2i_eq(v2i vector1, v2i vector2);
+
     irect irect_from_str(char const *str, char const sep);
     frect frect_from_str(char const *str, char const sep);
     v2f v2f_from_str(char const *str, char const sep);
 
     void frect_multiply(frect *rect, float multiplier);
+    v2i v2i_add(v2i vector1, v2i vector2);
     v2f v2f_add(v2f vector1, v2f vector2);
     v2f v2f_multiply(v2f vector1, v2f vector2);
-    v2i v2f_to_grid(v2f vector, int tile_size);
+    v2i v2f_to_grid(v2f vector);
+
+    v2i get_dir_by_key(sfKeyCode key);
+    v2f sprite_get_center(sprite_t *sprite);
+    void sprite_flip(sprite_t *sprite);
 #endif

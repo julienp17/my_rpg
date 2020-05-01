@@ -6,7 +6,6 @@
 */
 
 #include "game.h"
-#include "my_rpg.h"
 
 void game_update_view(game_t *game)
 {

@@ -13,5 +13,6 @@ void game_destroy(game_t *game)
     map_destroy(game->map);
     sfView_destroy(game->view);
     sfClock_destroy(game->clock);
+    sfRenderWindow_destroy(game->win);
     assets_destroy(game->assets);
 }

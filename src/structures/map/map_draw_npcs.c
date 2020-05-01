@@ -6,7 +6,6 @@
 */
 
 #include "map.h"
-#include "my_rpg.h"
 
 void map_draw_npcs(window_t *win, map_t *map)
 {

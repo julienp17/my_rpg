@@ -6,18 +6,16 @@
 */
 
 #include <stddef.h>
-#include "graphical_def.h"
-#include "my_rpg.h"
+#include "game.h"
 
 int main(void)
 {
-    window_t *window = NULL;
+    game_t *game = NULL;
     int status = 0;
 
-    window = window_create(WIN_WIDTH, WIN_HEIGHT, WIN_TITLE);
-    if (window == NULL)
-        return (1);
-    status = game_run(window);
-    sfRenderWindow_destroy(window);
+    game = game_create();
+    if (game == NULL)
+        return (84);
+    status = game_run(game);
     return (status);
 }

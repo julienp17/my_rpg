@@ -2,21 +2,18 @@
 ** EPITECH PROJECT, 2020
 ** MUL_my_rpg_2019
 ** File description:
-** Launch the game
+** game_run
 */
 
-#include <stdio.h>
 #include "game.h"
 
-int game_run(window_t *win)
+int game_run(game_t *game)
 {
-    game_t *game = NULL;
-
-    game = game_create(win);
-    if (game == NULL)
-        return (-1);
     if (game_load(game) == -1)
         return (-1);
+    sfMusic_play(MUSIC("onett"));
+    sfMusic_setLoop(MUSIC("onett"), sfTrue);
+    sfMusic_setVolume(MUSIC("onett"), 40.0f);
     while (sfRenderWindow_isOpen(game->win))
         game_loop(game);
     return (0);

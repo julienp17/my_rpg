@@ -9,15 +9,17 @@
 
 void player_update_animation(player_t *player)
 {
-    v2u tileset_size = v2u(0, 0);
-    irect sprite_rect = irect(0, 0, 0, 0);
+    irect sprite_rect;
 
-    tileset_size = sfTexture_getSize(player->tileset);
     sprite_rect = sfSprite_getTextureRect(player->sprite);
     sprite_rect.top = sprite_rect.height * (player->orientation % sfKeyLeft);
-    if (sprite_rect.left + sprite_rect.width >= (int)tileset_size.x)
+    if (player_is_moving(player) == false) {
         sprite_rect.left = 0;
-    else
-        sprite_rect.left += sprite_rect.width;
+    } else {
+        if (sprite_rect.left == sprite_rect.width)
+            sprite_rect.left += sprite_rect.width;
+        else
+            sprite_rect.left = sprite_rect.width;
+    }
     sfSprite_setTextureRect(player->sprite, sprite_rect);
 }

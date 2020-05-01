@@ -9,7 +9,7 @@
 #include "animation.h"
 #include "my.h"
 
-animation_t *animation_create(float switch_time)
+animation_t *animation_create(int switch_time)
 {
     animation_t *animation = NULL;
 
@@ -18,7 +18,7 @@ animation_t *animation_create(float switch_time)
         my_puterr("Couldn't allocate memory for animation structure.\n");
         return (NULL);
     }
-    animation->elapsed = 0.0f;
+    animation->elapsed = 0;
     animation->switch_time = switch_time;
     return (animation);
 }

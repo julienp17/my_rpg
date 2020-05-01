@@ -5,8 +5,7 @@
 ** Returns a newly allocated window
 */
 
-#include "graphical_def.h"
-#include "my_rpg.h"
+#include "game.h"
 
 static void set_icon(window_t *win, char const *icon_path);
 
@@ -17,6 +16,7 @@ window_t *window_create(uint width, uint height, char const *title)
 
     win = sfRenderWindow_create(mode, title, sfClose, NULL);
     sfRenderWindow_setFramerateLimit(win, FPS_LIMIT);
+    sfRenderWindow_setVerticalSyncEnabled(win, sfTrue);
     set_icon(win, ICON_PATH);
     return (win);
 }

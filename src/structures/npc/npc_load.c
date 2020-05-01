@@ -5,7 +5,7 @@
 ** npc_load_from_file
 */
 
-#include "my_rpg.h"
+#include <stdlib.h>
 #include "file_reading.h"
 #include "npc.h"
 #include "my.h"
@@ -24,6 +24,9 @@ int npc_load(npc_t *npc, char const *pathname, tileset_t *npc_tileset)
     pos = v2f_from_str(file_lines[1], ' ');
     pos = v2f_multiply(pos, v2f(TILE_SIZE, TILE_SIZE));
     sprite_rect = irect_from_str(file_lines[2], ' ');
+    npc->text = my_strarr_dup(file_lines + 3);
+    if (npc->text == NULL)
+        return (-1);
     sfSprite_setPosition(npc->sprite, pos);
     sfSprite_setTexture(npc->sprite, npc_tileset, sfFalse);
     sfSprite_setTextureRect(npc->sprite, sprite_rect);

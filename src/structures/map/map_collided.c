@@ -10,5 +10,5 @@
 
 bool map_collided(map_t *map, v2i coord)
 {
-    return (map->collision[coord.y][coord.x] != -1);
+    return (map->collisions[coord.y][coord.x] >= 0);
 }

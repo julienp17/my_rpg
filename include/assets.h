@@ -14,7 +14,9 @@
     #define ASSETS_DIR            "assets/"
     #define FONTS_DIR             "fonts/"
     #define MUSIC_DIR             "music/"
-    #define TILESET_DIR           "tilesets/"
+
+    #define FONT(font_name)       (get_font(game->assets, font_name))
+    #define MUSIC(music_name)     (get_music(game->assets, music_name))
 
     typedef struct assets {
         dict_t *fonts;

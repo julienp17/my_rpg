@@ -14,11 +14,13 @@ MAIN_F		=	main.c
 SRC			= 	$(addprefix $(SRC_D), $(SRC_F))
 OBJ 		= 	$(SRC:.c=.o)
 SRC_D 		= 	src/
-SRC_F 		=	utilities/get_offset_by_key.c \
+SRC_F 		=	utilities/get_dir_by_key.c \
 				utilities/v2f_from_str.c \
 				utilities/irect_from_str.c \
 				utilities/frect_from_str.c \
 				utilities/frect_multiply.c \
+				utilities/v2i_eq.c \
+				utilities/v2i_add.c \
 				utilities/v2f_add.c \
 				utilities/v2f_multiply.c \
 				utilities/v2f_to_grid.c \
@@ -45,6 +47,7 @@ SRC_F 		=	utilities/get_offset_by_key.c \
 				structures/map/map_draw_layer.c \
 				structures/map/map_draw_npcs.c \
 				structures/map/map_collided.c \
+				structures/map/map_get_npc_from_grid.c \
 				structures/map/vertices_load.c \
 				structures/map/tiles_load.c \
 				structures/game/game_create.c \
@@ -55,22 +58,26 @@ SRC_F 		=	utilities/get_offset_by_key.c \
 				structures/game/game_draw.c \
 				structures/game/game_update.c \
 				structures/game/game_update_view.c \
-				structures/game/game_handle_wrap.c \
 				structures/game/game_poll_events.c \
+				structures/game/game_handle_warps.c \
 				structures/game/window_create.c \
 				structures/player/player_create.c \
 				structures/player/player_destroy.c \
 				structures/player/player_load.c \
 				structures/player/player_draw.c \
+				structures/player/player_get_facing_tile.c \
+				structures/player/player_get_move_offset.c \
+				structures/player/player_can_interact.c \
 				structures/player/player_can_move.c \
 				structures/player/player_move.c \
-				structures/player/player_get_move_offset.c \
+				structures/player/player_is_moving.c \
 				structures/player/player_update.c \
 				structures/player/player_update_animation.c \
 				structures/npc/npc_create.c \
 				structures/npc/npc_load.c \
 				structures/npc/npc_destroy.c \
 				structures/npc/npc_draw.c \
+				structures/npc/npc_draw_text.c \
 				structures/npc/npc_update.c \
 				structures/npc/npc_update_animation.c \
 				structures/warp/warp_create.c \

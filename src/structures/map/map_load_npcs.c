@@ -11,6 +11,7 @@
 #include "file_reading.h"
 
 static int fill_npcs(map_t *map, char const *map_path, char **filenames);
+static void mark_npc_as_collision(map_t *map, npc_t *npc);
 
 int map_load_npcs(map_t *map, char const *map_name)
 {
@@ -49,7 +50,18 @@ static int fill_npcs(map_t *map, char const *map_path, char **filenames)
             return (EXIT_FAILURE);
         if (npc_load(map->npcs[i], filename, map->npc_sheet) < 0)
             return (EXIT_FAILURE);
+        mark_npc_as_collision(map, map->npcs[i]);
         free(filename);
     }
     return (EXIT_SUCCESS);
+}
+
+static void mark_npc_as_collision(map_t *map, npc_t *npc)
+{
+    v2i grid_pos = v2i(0, 0);
+    v2f npc_pos = v2f(0.0, 0.0);
+
+    npc_pos = sprite_get_center(npc->sprite);
+    grid_pos = v2f_to_grid(npc_pos);
+    map->collisions[grid_pos.y][grid_pos.x] = 1;
 }

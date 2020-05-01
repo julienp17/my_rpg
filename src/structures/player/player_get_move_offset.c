@@ -5,16 +5,16 @@
 ** player_get_move_offset
 */
 
-#include "my_rpg.h"
 #include "player.h"
 
-v2f player_get_move_offset(player_t *player, float delta_time)
+v2f player_get_move_offset(player_t *player, int delta_time)
 {
-    v2f dir = v2f(0.0, 0.0);
     v2f offset = v2f(0.0, 0.0);
+    v2i dir = v2i(0, 0);
 
-    dir = get_offset_by_key(player->orientation);
-    offset.x = dir.x * delta_time * player->move_speed;
-    offset.y = dir.y * delta_time * player->move_speed;
+    dir = get_dir_by_key(player->orientation);
+    offset.x = dir.x * player->move_speed;
+    offset.y = dir.y * player->move_speed;
+    (void)delta_time;
     return (offset);
 }
