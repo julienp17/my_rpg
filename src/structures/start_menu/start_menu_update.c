@@ -10,9 +10,12 @@
 void start_menu_update(game_t *game, start_menu_t *start_menu)
 {
     button_update(game->win, start_menu->start);
+    button_update(game->win, start_menu->commands);
     button_update(game->win, start_menu->quit);
     if (start_menu->start->is_pressed)
         game->state = INGAME;
     if (start_menu->quit->is_pressed)
         game->state = QUIT;
+    if (game->state != START_MENU)
+        sfMusic_stop(MUSIC("menu_theme"));
 }

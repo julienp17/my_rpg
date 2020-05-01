@@ -7,6 +7,8 @@
 
 #include "game.h"
 
+static void handle_key_pressed(sfKeyCode key, game_t *game);
+
 void start_menu_poll_events(game_t *game)
 {
     sfEvent event;
@@ -14,5 +16,13 @@ void start_menu_poll_events(game_t *game)
     while (game->state == START_MENU && POLL_EVENT(game->win, &event)) {
         if (event.type == sfEvtClosed)
             game->state = QUIT;
+        if (event.type == sfEvtKeyPressed)
+            handle_key_pressed(event.key.code, game);
     }
+}
+
+static void handle_key_pressed(sfKeyCode key, game_t *game)
+{
+    if (key == sfKeyEscape)
+        game->state = QUIT;
 }
