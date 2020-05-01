@@ -15,7 +15,7 @@ void pause_menu_run(game_t *game)
     pause_menu = pause_menu_create();
     if (pause_menu == NULL)
         return;
-    pause_menu_load(pause_menu, FONT("apple_kid"));
+    pause_menu_load(pause_menu, game->win, FONT("apple_kid"));
     while (game->state == PAUSE_MENU)
         pause_menu_loop(game, pause_menu);
     pause_menu_destroy(pause_menu);
