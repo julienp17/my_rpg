@@ -71,6 +71,7 @@
     v2i v2f_to_grid(v2f vector);
 
     int rand_in_range(int min, int max);
+    rect_t *get_default_rect(v2f pos, v2f size);
     v2i get_dir_by_key(sfKeyCode key);
     v2f sprite_get_center(sprite_t *sprite);
     void sprite_flip(sprite_t *sprite);
