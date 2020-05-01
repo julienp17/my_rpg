@@ -11,25 +11,30 @@
     #include "game.h"
     #include "button.h"
 
-    #define GAME_NAME_COLOR           RGB(255, 200, 100)
-    #define GAME_NAME_Y_FACTOR        10.8f
-    #define GAME_NAME_CHAR_FACTOR     6000
+    #define SHADER_PATH                     "assets/shaders/interlace.glsl"
+    #define START_MENU_NB_CIRCLES           20
+    #define CIRCLE_COLOR1                   RGB(126, 44, 32)
+    #define CIRCLE_COLOR2                   RGB(125, 0, 117)
+    #define GAME_NAME_COLOR                 ORANGE_WEIRD
+    #define GAME_NAME_Y_FACTOR              10.8f
+    #define QUIT_BUTTON_Y_FACTOR            21.6f
+    #define GAME_NAME_CHAR_FACTOR           6000
     #define GAME_NAME_Y_OFFSET(win_size_y) \
         ((win_size_y) / GAME_NAME_Y_FACTOR)
     #define GAME_NAME_CHAR_OFFSET(win_size) \
         ((win_size.x * win_size.y) / GAME_NAME_CHAR_FACTOR)
-    #define QUIT_BUTTON_Y_FACTOR      21.6f
     #define QUIT_BUTTON_Y_OFFSET(win_size_y) \
         ((win_size_y) - ((win_size_y) / QUIT_BUTTON_Y_FACTOR))
     #define START_MENU_BG_IMAGE  \
         "assets/backgrounds/start_menu_bg.jpg"
 
     typedef struct start_menu {
-        texture_t *bg;
         text_t *game_name;
         button_t *start;
         button_t *commands;
         button_t *quit;
+        circle_t *circles[START_MENU_NB_CIRCLES + 1];
+        shader_t *shader;
     } start_menu_t;
 
     start_menu_t *start_menu_create(void);

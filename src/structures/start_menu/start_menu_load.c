@@ -5,10 +5,12 @@
 ** start_menu_load
 */
 
+#include <stdlib.h>
 #include "start_menu.h"
 
 static void init_game_name(text_t *game_name, font_t *font, v2u win_size);
 static void init_buttons(start_menu_t *start_menu, v2u win_size, font_t *font);
+static void init_circles(start_menu_t *start_menu, v2u win_size);
 
 void start_menu_load(start_menu_t *start_menu, game_t *game)
 {
@@ -17,6 +19,7 @@ void start_menu_load(start_menu_t *start_menu, game_t *game)
     win_size = sfRenderWindow_getSize(game->win);
     init_game_name(start_menu->game_name, FONT("apple_kid"), win_size);
     init_buttons(start_menu, win_size, FONT("apple_kid"));
+    init_circles(start_menu, win_size);
 }
 
 static void init_game_name(text_t *game_name, font_t *font, v2u win_size)
@@ -35,7 +38,7 @@ static void init_game_name(text_t *game_name, font_t *font, v2u win_size)
     sfText_setPosition(game_name, pos);
     sfText_setColor(game_name, GAME_NAME_COLOR);
     sfText_setOutlineColor(game_name, PURPLE);
-    sfText_setOutlineThickness(game_name, 3.0f);
+    sfText_setOutlineThickness(game_name, 5.0f);
     sfText_setStyle(game_name, sfTextBold);
 }
 
@@ -52,4 +55,26 @@ static void init_buttons(start_menu_t *start_menu, v2u win_size, font_t *font)
     button_load(start_menu->commands, rect, "Commands", font);
     rect.top -= win_size.y / 8;
     button_load(start_menu->start, rect, "Start", font);
+}
+
+static void init_circles(start_menu_t *start_menu, v2u win_size)
+{
+    circle_t *circle = NULL;
+    color_t color = RGB(0, 0, 0);
+    float radius = 0.0f;
+    float thickness = 0.0f;
+    v2f pos = v2f(0.0f, 0.0f);
+
+    for (uint i = 0 ; start_menu->circles[i] ; i++) {
+        circle = start_menu->circles[i];
+        radius = rand_in_range(win_size.y / 100, win_size.y);
+        thickness = rand_in_range(30, 50);
+        color = (rand() % 2) ? CIRCLE_COLOR1 : CIRCLE_COLOR2;
+        pos = v2f(win_size.x / 2 - radius, win_size.y / 2 - radius);
+        sfCircleShape_setFillColor(circle, sfTransparent);
+        sfCircleShape_setOutlineColor(circle, color);
+        sfCircleShape_setOutlineThickness(circle, thickness);
+        sfCircleShape_setRadius(circle, radius);
+        sfCircleShape_setPosition(circle, pos);
+    }
 }
