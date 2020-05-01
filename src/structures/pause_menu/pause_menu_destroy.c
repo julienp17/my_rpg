@@ -10,6 +10,7 @@
 
 void pause_menu_destroy(pause_menu_t *pause_menu)
 {
+    button_destroy(pause_menu->start_menu);
     button_destroy(pause_menu->quit);
     free(pause_menu);
 }

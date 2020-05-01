@@ -9,7 +9,12 @@
 
 void pause_menu_update(game_t *game, pause_menu_t *pause_menu)
 {
+    button_update(game->win, pause_menu->start_menu);
     button_update(game->win, pause_menu->quit);
+    if (pause_menu->start_menu->is_pressed) {
+        game->state = START_MENU;
+        sfMusic_stop(MUSIC("onett"));
+    }
     if (pause_menu->quit->is_pressed)
         game->state = QUIT;
 }

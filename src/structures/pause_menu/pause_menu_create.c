@@ -18,8 +18,9 @@ pause_menu_t *pause_menu_create(void)
         my_puterr("Couldn't allocate memory for pause_menu structure.\n");
         return (NULL);
     }
+    pause_menu->start_menu = button_create();
     pause_menu->quit = button_create();
-    if (pause_menu->quit == NULL)
+    if (pause_menu->start_menu == NULL || pause_menu->quit == NULL)
         return (NULL);
     return (pause_menu);
 }
