@@ -6,15 +6,20 @@
 */
 
 #include "game.h"
+#include "start_menu.h"
+#include "pause_menu.h"
 
 int game_run(game_t *game)
 {
     if (game_load(game) == -1)
         return (-1);
-    sfMusic_setLoop(MUSIC("onett"), sfTrue);
-    sfMusic_setVolume(MUSIC("onett"), 40.0f);
-    sfMusic_play(MUSIC("onett"));
-    while (game->state != QUIT)
-        game_loop(game);
+    while (game->state != QUIT) {
+        if (game->state == START_MENU)
+            start_menu_run(game);
+        if (game->state == INGAME)
+            ingame_run(game);
+        if (game->state == PAUSE_MENU)
+            pause_menu_run(game);
+    }
     return (0);
 }
