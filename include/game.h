@@ -14,11 +14,12 @@
     #include "map.h"
     #include "player.h"
 
+    #define GAME_NAME           "Mobius"
     #define ICON_PATH           "assets/icons/my_rpg_icon.png"
     #define FPS_LIMIT           60
-    #define WIN_TITLE           "my_rpg"
-    #define WIN_WIDTH           800
-    #define WIN_HEIGHT          600
+    #define WIN_TITLE           GAME_NAME
+    #define WIN_WIDTH           1920
+    #define WIN_HEIGHT          1080
     #define WIN_SIZE            WIN_WIDTH, WIN_HEIGHT
     #define VIEW_WIDTH          480
     #define VIEW_HEIGHT         360
