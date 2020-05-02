@@ -5,6 +5,7 @@
 ** game_run
 */
 
+#include <stdlib.h>
 #include "game.h"
 #include "start_menu.h"
 #include "pause_menu.h"
@@ -13,6 +14,7 @@ int game_run(game_t *game)
 {
     if (game_load(game) == -1)
         return (-1);
+    srand(sfMouse_getPosition(NULL).x);
     while (game->state != QUIT) {
         if (game->state == START_MENU)
             start_menu_run(game);
