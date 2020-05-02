@@ -77,6 +77,9 @@ SRC_F 		=	utilities/get_dir_by_key.c \
 				structures/pause_menu/pause_menu_run.c \
 				structures/pause_menu/pause_menu_loop.c \
 				structures/pause_menu/pause_menu_draw.c \
+				structures/pause_menu/pause_menu_draw_stats.c \
+				structures/pause_menu/pause_menu_draw_stats_value.c \
+				structures/pause_menu/pause_menu_draw_stats_sprites.c \
 				structures/pause_menu/pause_menu_poll_events.c \
 				structures/pause_menu/pause_menu_update.c \
 				structures/player/player_can_interact.c \
@@ -99,6 +102,8 @@ SRC_F 		=	utilities/get_dir_by_key.c \
 				structures/start_menu/start_menu_draw.c \
 				structures/start_menu/start_menu_poll_events.c \
 				structures/start_menu/start_menu_update.c \
+				structures/stats/stats_create.c \
+				structures/stats/stats_destroy.c \
 				structures/warp/warp_create.c \
 				structures/warp/warp_destroy.c \
 				structures/warp/warp_load.c \
@@ -113,6 +118,10 @@ SRC_F 		=	utilities/get_dir_by_key.c \
 				utilities/v2f_to_grid.c \
 				utilities/v2i_add.c \
 				utilities/v2i_eq.c \
+				utilities/color_eq.c \
+				utilities/get_random.c \
+				utilities/get_default_rect.c \
+				utilities/get_default_text.c \
 
 SRC_UT   	=	$(addprefix $(SRC_UT_D), $(SRC_UT_F))
 OBJ_UT 	 	=	$(SRC_UT:.c=.o)
