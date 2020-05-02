@@ -44,6 +44,7 @@
     typedef sfShader                        shader_t;
 
     #define MIN(nb1, nb2)                   ((nb1 < nb2) ? nb1 : nb2)
+    #define MAX(nb1, nb2)                   ((nb1 > nb2) ? nb1 : nb2)
     #define v2i(x, y)                       (v2i)   {(x), (y)}
     #define v2u(x, y)                       (v2u)   {(x), (y)}
     #define v2f(x, y)                       (v2f)   {(x), (y)}
@@ -56,6 +57,8 @@
     #define PURPLE                          RGB(128, 0, 128)
     #define ORANGE_WEIRD                    RGB(255, 200, 100)
     #define TRANSPARENT_GREY                RGBA(0, 0, 0, 125)
+    #define TEXT_CHAR_SIZE(bounds) \
+        ((bounds.width * bounds.height) / 555)
 
     bool v2i_eq(v2i vector1, v2i vector2);
     bool color_eq(color_t color1, color_t color2);
@@ -71,7 +74,8 @@
     v2i v2f_to_grid(v2f vector);
 
     int rand_in_range(int min, int max);
-    rect_t *get_default_rect(v2f pos, v2f size);
+    rect_t *get_default_rect(frect bounds);
+    text_t *get_default_text(frect bounds, char const *str, font_t *font);
     v2i get_dir_by_key(sfKeyCode key);
     v2f sprite_get_center(sprite_t *sprite);
     void sprite_flip(sprite_t *sprite);
