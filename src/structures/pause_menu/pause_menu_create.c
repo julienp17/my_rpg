@@ -28,5 +28,8 @@ pause_menu_t *pause_menu_create(void)
         return (NULL);
     pause_menu->show_stats = false;
     pause_menu->show_inventory = false;
+    pause_menu->stats_icons = sfTexture_createFromFile(STATS_ICONS_PATH, NULL);
+    if (pause_menu->stats_icons == NULL)
+        return (NULL);
     return (pause_menu);
 }

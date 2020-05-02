@@ -16,5 +16,6 @@ void pause_menu_draw(game_t *game, pause_menu_t *pause_menu)
     button_draw(game->win, pause_menu->start_menu);
     button_draw(game->win, pause_menu->quit);
     if (pause_menu->show_stats)
-        pause_menu_draw_stats(game->win, game->player);
+        pause_menu_draw_stats(game->win, pause_menu, game->player->stats,
+                                FONT("apple_kid"));
 }
