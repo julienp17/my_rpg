@@ -20,11 +20,14 @@
     int my_atoi(char const *str);
     int my_strcmp(char const *s1, char const *s2);
     int my_strtol(char *str, char **endptr);
+    unsigned int my_intlen(int nb);
     unsigned int my_strlen(char const *str);
     unsigned int my_strarr_len(char **arr);
     unsigned int my_count_char(char const *str, char const to_count);
     unsigned int my_count_until_sep(char const *str, char const sep);
 
+    char *my_int_to_strnum(int nb);
+    char *my_revstr(char *str);
     char *my_sdup(int nb_str, ...);
     char *my_strdup(char const *src);
     char *my_strdupcat(char const *s1, char const *s2);
