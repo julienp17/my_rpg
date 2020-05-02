@@ -11,8 +11,6 @@
     #include <stdbool.h>
     #include "graphical_def.h"
 
-    #define BUTTON_HOVER_OUTLINE_COLOR      sfYellow
-
     typedef struct button {
         rect_t *shape;
         text_t *text;
