@@ -13,8 +13,8 @@
     #include "map.h"
     #include "stats.h"
 
-    #define PLAYER_START_X              13
-    #define PLAYER_START_Y              9
+    #define PLAYER_START_X              23
+    #define PLAYER_START_Y              12
     #define PLAYER_START                PLAYER_START_X, PLAYER_START_Y
     #define PLAYER_SHEET_PATH           "assets/spritesheets/player.png"
     #define PLAYER_SHEET_ROWS           4
