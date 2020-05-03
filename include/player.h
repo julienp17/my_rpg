@@ -11,6 +11,7 @@
     #include "graphical_def.h"
     #include "animation.h"
     #include "map.h"
+    #include "stats.h"
 
     #define PLAYER_START_X              13
     #define PLAYER_START_Y              9
@@ -26,7 +27,8 @@
         sprite_t *sprite;
         texture_t *tileset;
         sfKeyCode orientation;
-        int move_speed;
+        stats_t *stats;
+        float move_speed;
         bool is_interacting;
     } player_t;
 

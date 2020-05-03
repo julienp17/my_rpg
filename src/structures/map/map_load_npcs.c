@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "map.h"
 #include "my.h"
-#include "file_reading.h"
+#include "file_control.h"
 
 static int fill_npcs(map_t *map, char const *map_path, char **filenames);
 static void mark_npc_as_collision(map_t *map, npc_t *npc);

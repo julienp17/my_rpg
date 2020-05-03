@@ -14,17 +14,19 @@
     #include "map.h"
     #include "player.h"
 
+    #define GAME_NAME           "Mobius"
     #define ICON_PATH           "assets/icons/my_rpg_icon.png"
     #define FPS_LIMIT           60
-    #define WIN_TITLE           "my_rpg"
-    #define WIN_WIDTH           800
-    #define WIN_HEIGHT          600
+    #define WIN_TITLE           GAME_NAME
+    #define WIN_WIDTH           1920
+    #define WIN_HEIGHT          1080
     #define WIN_SIZE            WIN_WIDTH, WIN_HEIGHT
     #define VIEW_WIDTH          480
     #define VIEW_HEIGHT         360
     #define VIEW_SIZE           VIEW_WIDTH, VIEW_HEIGHT
 
     enum game_state {
+        QUIT,
         START_MENU,
         PAUSE_MENU,
         INGAME
@@ -40,16 +42,17 @@
         enum game_state state;
     } game_t;
 
-    game_t *game_create(void);
     window_t *window_create(uint width, uint height, char const *title);
+    game_t *game_create(void);
     int game_load(game_t *game);
     void game_destroy(game_t *game);
-
     int game_run(game_t *game);
-    void game_poll_events(game_t *game);
-    void game_loop(game_t *game);
-    void game_draw(game_t *game);
-    void game_update(game_t *game, int delta_time);
-    void game_update_view(game_t *game);
-    int  game_handle_warps(map_t *map, player_t *player);
+
+    void ingame_run(game_t *game);
+    void ingame_poll_events(game_t *game);
+    void ingame_loop(game_t *game);
+    void ingame_draw(game_t *game);
+    void ingame_update(game_t *game, int delta_time);
+    void ingame_update_view(game_t *game);
+    int  ingame_handle_warps(map_t *map, player_t *player);
 #endif

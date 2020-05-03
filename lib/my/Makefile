@@ -23,6 +23,9 @@ SRC			=	my_strcmp.c \
 				my_str_ends.c \
 				my_str_isnum.c \
 				my_strarr_dup.c \
+				my_int_to_strnum.c \
+				my_intlen.c \
+				my_revstr.c \
 
 OBJ			=	$(SRC:.c=.o)
 

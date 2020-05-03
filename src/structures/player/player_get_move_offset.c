@@ -13,8 +13,7 @@ v2f player_get_move_offset(player_t *player, int delta_time)
     v2i dir = v2i(0, 0);
 
     dir = get_dir_by_key(player->orientation);
-    offset.x = dir.x * player->move_speed;
-    offset.y = dir.y * player->move_speed;
-    (void)delta_time;
+    offset.x = dir.x * player->move_speed * delta_time;
+    offset.y = dir.y * player->move_speed * delta_time;
     return (offset);
 }

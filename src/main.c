@@ -17,5 +17,6 @@ int main(void)
     if (game == NULL)
         return (84);
     status = game_run(game);
+    game_destroy(game);
     return (status);
 }

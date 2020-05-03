@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include "file_reading.h"
+#include "file_control.h"
 #include "warp.h"
 #include "my.h"
 #include "map.h"
