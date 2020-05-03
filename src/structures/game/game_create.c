@@ -27,6 +27,6 @@ game_t *game_create(void)
     game->map    = map_create();
     game->view   = sfView_create();
     game->clock  = sfClock_create();
-    game->state  = INGAME;
+    game->state  = START_MENU;
     return (game);
 }
