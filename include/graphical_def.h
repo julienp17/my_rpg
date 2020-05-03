@@ -32,6 +32,7 @@
     typedef sfTexture                       spritesheet_t;
     typedef spritesheet_t                   sheet_t;
     typedef sfVertexArray                   vertex_arr_t;
+    typedef sfVertex                        vertex_t;
     typedef sfRenderWindow                  window_t;
     typedef sfEvent                         event_t;
     typedef sfSprite                        sprite_t;
