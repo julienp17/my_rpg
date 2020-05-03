@@ -82,6 +82,7 @@ SRC_F 		=	utilities/get_dir_by_key.c \
 				structures/pause_menu/pause_menu_draw_stats_sprites.c \
 				structures/pause_menu/pause_menu_poll_events.c \
 				structures/pause_menu/pause_menu_update.c \
+				structures/particle/particle_reset.c \
 				structures/player/player_can_interact.c \
 				structures/player/player_can_move.c \
 				structures/player/player_create.c \
