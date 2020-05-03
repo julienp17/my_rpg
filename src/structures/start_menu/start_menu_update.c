@@ -9,9 +9,11 @@
 #include "start_menu.h"
 #include "particle.h"
 
+static void update_buttons(start_menu_t *start_menu, window_t *win);
 static void update_circles(start_menu_t *start_menu, v2u win_size);
 static void update_particles(start_menu_t *start_menu, v2i emitter_pos,
                             sfTime delta_time);
+static void update_states(game_t *game, start_menu_t *start_menu);
 
 void start_menu_update(game_t *game, start_menu_t *start_menu, sfTime dt)
 {
@@ -22,15 +24,8 @@ void start_menu_update(game_t *game, start_menu_t *start_menu, sfTime dt)
     mouse_pos = sfMouse_getPositionRenderWindow(game->win);
     update_circles(start_menu, win_size);
     update_particles(start_menu, mouse_pos, dt);
-    button_update(game->win, start_menu->start);
-    button_update(game->win, start_menu->commands);
-    button_update(game->win, start_menu->quit);
-    if (start_menu->start->is_pressed)
-        game->state = INGAME;
-    if (start_menu->quit->is_pressed)
-        game->state = QUIT;
-    if (game->state != START_MENU)
-        sfMusic_stop(MUSIC("menu_theme"));
+    update_buttons(start_menu, game->win);
+    update_states(game, start_menu);
 }
 
 static void update_circles(start_menu_t *start_menu, v2u win_size)
@@ -71,7 +66,7 @@ static void update_particles(start_menu_t *start_menu, v2i emitter_pos,
         vertex = sfVertexArray_getVertex(start_menu->vertices, i);
         particle = &(start_menu->particles[i]);
         particle->lifetime.microseconds -= sfTime_asMicroseconds(delta_time);
-        if (particle->lifetime.microseconds < sfTime_asMicroseconds(sfTime_Zero)) {
+        if (particle->lifetime.microseconds<sfTime_asMicroseconds(sfTime_Zero)){
             particle_reset(particle);
             vertex->position = v2f(emitter_pos.x, emitter_pos.y);
         }
@@ -82,4 +77,26 @@ static void update_particles(start_menu_t *start_menu, v2i emitter_pos,
         vertex->color = (rand() % 2) ? sfRed : sfYellow;
         vertex->color.a = (sfUint8)(ratio * 255.0f);
     }
+}
+
+static void update_buttons(start_menu_t *start_menu, window_t *win)
+{
+    button_update(win, start_menu->start);
+    button_update(win, start_menu->commands);
+    button_update(win, start_menu->quit);
+    button_update(win, start_menu->go_back);
+}
+
+static void update_states(game_t *game, start_menu_t *start_menu)
+{
+    if (start_menu->commands->is_pressed)
+        start_menu->show_commands = true;
+    else if (start_menu->go_back->is_pressed)
+        start_menu->show_commands = false;
+    if (start_menu->start->is_pressed)
+        game->state = INGAME;
+    if (start_menu->quit->is_pressed)
+        game->state = QUIT;
+    if (game->state != START_MENU)
+        sfMusic_stop(MUSIC("menu_theme"));
 }

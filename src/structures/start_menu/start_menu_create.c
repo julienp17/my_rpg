@@ -9,6 +9,7 @@
 #include "start_menu.h"
 #include "my.h"
 
+static int create_buttons(start_menu_t *start_menu);
 static int allocate_circles(start_menu_t *start_menu);
 static void allocate_particles(start_menu_t *start_menu);
 
@@ -21,10 +22,7 @@ start_menu_t *start_menu_create(void)
         my_puterr("Couldn't allocate memory for start_menu structure.\n");
         return (NULL);
     }
-    start_menu->start = button_create();
-    start_menu->quit = button_create();
-    start_menu->commands = button_create();
-    if (!start_menu->start || !start_menu->quit || !start_menu->commands)
+    if (create_buttons(start_menu) == EXIT_FAILURE)
         return (NULL);
     start_menu->game_name = sfText_create();
     start_menu->shader = sfShader_createFromFile(NULL, NULL, SHADER_PATH);
@@ -33,7 +31,21 @@ start_menu_t *start_menu_create(void)
     if (allocate_circles(start_menu) == EXIT_FAILURE)
         return (NULL);
     allocate_particles(start_menu);
+    start_menu->show_commands = false;
     return (start_menu);
+}
+
+static int create_buttons(start_menu_t *start_menu)
+{
+    start_menu->start = button_create();
+    start_menu->quit = button_create();
+    start_menu->commands = button_create();
+    start_menu->go_back = button_create();
+    if (start_menu->start == NULL || start_menu->quit == NULL)
+        return (EXIT_FAILURE);
+    if (start_menu->commands == NULL || start_menu->go_back == NULL)
+        return (EXIT_FAILURE);
+    return (EXIT_SUCCESS);
 }
 
 static int allocate_circles(start_menu_t *start_menu)

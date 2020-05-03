@@ -49,12 +49,15 @@ static void init_buttons(start_menu_t *start_menu, v2u win_size, font_t *font)
     rect.left = win_size.x / 2 - win_size.x / 8;
     rect.width = win_size.x / 4;
     rect.height = win_size.y / 12;
-    rect.top = QUIT_BUTTON_Y_OFFSET(win_size.y) - rect.height;
-    button_load(start_menu->quit, rect, "Quit", font);
-    rect.top -= win_size.y / 8;
-    button_load(start_menu->commands, rect, "Commands", font);
-    rect.top -= win_size.y / 8;
+    rect.top = win_size.y / 2 + win_size.y / 12;
     button_load(start_menu->start, rect, "Start", font);
+    rect.top += win_size.y / 8;
+    button_load(start_menu->commands, rect, "Commands", font);
+    rect.top += win_size.y / 8;
+    button_load(start_menu->quit, rect, "Quit", font);
+    rect.left = win_size.x / 20.0f;
+    rect.top = win_size.y / 20.0f;
+    button_load(start_menu->go_back, rect, "Go back", font);
 }
 
 static void init_circles(start_menu_t *start_menu, v2u win_size)

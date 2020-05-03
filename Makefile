@@ -101,6 +101,7 @@ SRC_F 		=	utilities/get_dir_by_key.c \
 				structures/start_menu/start_menu_run.c \
 				structures/start_menu/start_menu_loop.c \
 				structures/start_menu/start_menu_draw.c \
+				structures/start_menu/start_menu_draw_commands.c \
 				structures/start_menu/start_menu_poll_events.c \
 				structures/start_menu/start_menu_update.c \
 				structures/stats/stats_create.c \

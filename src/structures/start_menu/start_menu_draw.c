@@ -12,13 +12,18 @@ static void draw_circles(window_t *win, start_menu_t *start_menu);
 static void draw_something_weird(window_t *win, shader_t *shader);
 static void draw_particles(window_t *win, start_menu_t *start_menu);
 
-void start_menu_draw(window_t *win, start_menu_t *start_menu)
+void start_menu_draw(window_t *win, start_menu_t *start_menu, font_t *font)
 {
     draw_circles(win, start_menu);
     draw_something_weird(win, start_menu->shader);
-    button_draw(win, start_menu->start);
-    button_draw(win, start_menu->commands);
-    button_draw(win, start_menu->quit);
+    if (start_menu->show_commands == false) {
+        button_draw(win, start_menu->start);
+        button_draw(win, start_menu->commands);
+        button_draw(win, start_menu->quit);
+    } else {
+        button_draw(win, start_menu->go_back);
+        start_menu_draw_commands(win, font);
+    }
     sfRenderWindow_drawText(win, start_menu->game_name, NULL);
     draw_particles(win, start_menu);
 }
