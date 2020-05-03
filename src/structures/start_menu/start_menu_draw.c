@@ -10,6 +10,7 @@
 
 static void draw_circles(window_t *win, start_menu_t *start_menu);
 static void draw_something_weird(window_t *win, shader_t *shader);
+static void draw_particles(window_t *win, start_menu_t *start_menu);
 
 void start_menu_draw(window_t *win, start_menu_t *start_menu)
 {
@@ -19,6 +20,7 @@ void start_menu_draw(window_t *win, start_menu_t *start_menu)
     button_draw(win, start_menu->commands);
     button_draw(win, start_menu->quit);
     sfRenderWindow_drawText(win, start_menu->game_name, NULL);
+    draw_particles(win, start_menu);
 }
 
 static void draw_circles(window_t *win, start_menu_t *start_menu)
@@ -51,4 +53,15 @@ static void draw_something_weird(window_t *win, shader_t *shader)
     sfRenderWindow_drawSprite(win, sprite, &states);
     sfTexture_destroy(texture);
     sfSprite_destroy(sprite);
+}
+
+static void draw_particles(window_t *win, start_menu_t *start_menu)
+{
+    sfRenderStates states;
+
+    states.blendMode = sfBlendAlpha;
+    states.shader = NULL;
+    states.transform = sfTransform_Identity;
+    states.texture = NULL;
+    sfRenderWindow_drawVertexArray(win, start_menu->vertices, &states);
 }

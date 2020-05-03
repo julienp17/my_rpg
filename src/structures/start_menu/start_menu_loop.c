@@ -10,8 +10,11 @@
 
 void start_menu_loop(game_t *game, start_menu_t *start_menu)
 {
+    sfTime delta_time = sfTime_Zero;
+
+    delta_time = sfClock_restart(game->clock);
     start_menu_poll_events(game);
-    start_menu_update(game, start_menu);
+    start_menu_update(game, start_menu, delta_time);
     sfRenderWindow_clear(game->win, sfBlack);
     start_menu_draw(game->win, start_menu);
     sfRenderWindow_display(game->win);

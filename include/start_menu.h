@@ -10,9 +10,11 @@
 
     #include "game.h"
     #include "button.h"
+    #include "particle.h"
 
     #define SHADER_PATH                     "assets/shaders/interlace.glsl"
     #define START_MENU_NB_CIRCLES           20
+    #define START_MENU_NB_PARTICLES         10000
     #define CIRCLE_COLOR1                   RGB(126, 44, 32)
     #define CIRCLE_COLOR2                   RGB(125, 0, 117)
     #define GAME_NAME_COLOR                 ORANGE_WEIRD
@@ -35,6 +37,8 @@
         button_t *quit;
         circle_t *circles[START_MENU_NB_CIRCLES + 1];
         shader_t *shader;
+        vertex_arr_t *vertices;
+        particle_t particles[START_MENU_NB_PARTICLES];
     } start_menu_t;
 
     start_menu_t *start_menu_create(void);
@@ -45,5 +49,5 @@
     void start_menu_poll_events(game_t *game);
     void start_menu_loop(game_t *game, start_menu_t *start_menu);
     void start_menu_draw(window_t *win, start_menu_t *start_menu);
-    void start_menu_update(game_t *game, start_menu_t *start_menu);
+    void start_menu_update(game_t *game, start_menu_t *start_menu, sfTime dt);
 #endif
