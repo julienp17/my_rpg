@@ -12,7 +12,7 @@
     #include "button.h"
     #include "player.h"
 
-    #define STATS_ICONS_PATH        "assets/spritesheets/stats_icons.png"
+    #define STATS_ICONS_PATH        "assets/spritesheets/pause_menu_icons.png"
 
     typedef struct pause_menu {
         button_t *stats;
@@ -21,7 +21,7 @@
         button_t *quit;
         bool show_stats;
         bool show_inventory;
-        sheet_t *stats_icons;
+        sheet_t *icons;
     } pause_menu_t;
 
     pause_menu_t *pause_menu_create(void);
@@ -38,5 +38,11 @@
                                     sheet_t *icons);
     void pause_menu_draw_stats_value(window_t *win, frect bounds,
                                     stats_t *stats, font_t *font);
+    void pause_menu_draw_inventory(window_t *win, pause_menu_t *pause_menu,
+                                    stats_t *stats, font_t *font);
+    void pause_menu_draw_inventory_sprites(window_t *win,frect bounds,
+                                    sheet_t*icons);
+    void pause_menu_draw_inventory_content(window_t *win, frect bounds,
+                                        stats_t *stats, font_t *font);
     void pause_menu_update(game_t *game, pause_menu_t *pause_menu);
 #endif

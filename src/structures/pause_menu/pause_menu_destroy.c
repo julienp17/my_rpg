@@ -14,6 +14,6 @@ void pause_menu_destroy(pause_menu_t *pause_menu)
     button_destroy(pause_menu->inventory);
     button_destroy(pause_menu->start_menu);
     button_destroy(pause_menu->quit);
-    sfTexture_destroy(pause_menu->stats_icons);
+    sfTexture_destroy(pause_menu->icons);
     free(pause_menu);
 }

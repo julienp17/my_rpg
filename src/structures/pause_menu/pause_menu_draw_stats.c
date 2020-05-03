@@ -24,7 +24,7 @@ void pause_menu_draw_stats(window_t *win, pause_menu_t *pause_menu,
     bounds.width = (win_size.x - bounds.left - win_size.x / 20) / 2;
     bounds.height = (win_size.y / 2 + 30) / 3;
     draw_boxes(win, bounds);
-    pause_menu_draw_stats_sprites(win, bounds, pause_menu->stats_icons);
+    pause_menu_draw_stats_sprites(win, bounds, pause_menu->icons);
     pause_menu_draw_stats_value(win, bounds, stats, font);
 }
 
