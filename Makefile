@@ -80,6 +80,9 @@ SRC_F 		=	utilities/get_dir_by_key.c \
 				structures/pause_menu/pause_menu_draw_stats.c \
 				structures/pause_menu/pause_menu_draw_stats_value.c \
 				structures/pause_menu/pause_menu_draw_stats_sprites.c \
+				structures/pause_menu/pause_menu_draw_inventory.c \
+				structures/pause_menu/pause_menu_draw_inventory_sprites.c \
+				structures/pause_menu/pause_menu_draw_inventory_content.c \
 				structures/pause_menu/pause_menu_poll_events.c \
 				structures/pause_menu/pause_menu_update.c \
 				structures/particle/particle_reset.c \
@@ -106,6 +109,7 @@ SRC_F 		=	utilities/get_dir_by_key.c \
 				structures/start_menu/start_menu_update.c \
 				structures/stats/stats_create.c \
 				structures/stats/stats_destroy.c \
+				structures/stats/stats_get_str_by_enum.c \
 				structures/warp/warp_create.c \
 				structures/warp/warp_destroy.c \
 				structures/warp/warp_load.c \
