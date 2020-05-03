@@ -22,5 +22,7 @@ void ingame_update_view(game_t *game)
         center.y = view_size.y / 2;
     if (center.y + view_size.y / 2 > game->map->size.y)
         center.y = game->map->size.y - view_size.y / 2;
+    if (view_size.x > game->map->size.x && view_size.y > game->map->size.y)
+        center = v2f(game->map->size.x / 2.0f, game->map->size.y / 2.0f);
     sfView_setCenter(game->view, center);
 }
