@@ -10,6 +10,14 @@
 
     #define STATS_NB_FIELDS         5
 
+    enum stat_field {
+        HEALTH,
+        MANA,
+        ATK,
+        DEF,
+        XP
+    } stat_field_t;
+
     typedef struct stats {
         int health;
         int mana;
@@ -20,4 +28,6 @@
 
     stats_t *stats_create(void);
     void stats_destroy(stats_t *stats);
+
+    char *stats_get_str_by_enum(int value);
 #endif
