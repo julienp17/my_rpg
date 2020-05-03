@@ -15,16 +15,12 @@ static void draw_items_value(window_t *win, frect bounds, stats_t *stats,
 static void draw_each_value(window_t *win, frect bounds, text_t *text,
                             stats_t *stats);
 static void draw_value(window_t *win, text_t *text, char *label, int value);
-// static void draw_stats_value(window_t *win, frect bounds, stats_t *stats,
-//                             font_t *font);
 
 void pause_menu_draw_inventory_content(window_t *win, frect bounds,
                                         stats_t *stats, font_t *font)
 {
     draw_items_name(win, bounds, font);
     draw_items_value(win, bounds, stats, font);
-    // draw_stats_value(win, bounds, stats, font);
-    // draw_xp_bar(win, bounds, stats->xp);
 }
 
 static void draw_items_name(window_t *win, frect bounds, font_t *font)
@@ -71,11 +67,8 @@ static void draw_each_value(window_t *win, frect bounds, text_t *text,
                             stats_t *stats)
 {
     int items_value[5][STATS_NB_FIELDS] = {
-        {1, 0, 0, 4, 0},
-        {3, 0, 0, 6, 0},
-        {2, 0, 0, 4, 0},
-        {0, 2, 0, 3, 0},
-        {0, 0, 4, 0, 0}
+        {1, 0, 0, 1, 0}, {1, 0, 0, 2, 0}, {1, 0, 0, 2, 0}, {0, 2, 0, 0, 0},
+        {0, 0, 3, 0, 0}
     };
     frect text_bounds = frect(0.0f, 0.0f, 0.0f, 0.0f);
     char *stat_label = NULL;
