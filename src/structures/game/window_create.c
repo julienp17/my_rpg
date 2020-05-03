@@ -14,7 +14,7 @@ window_t *window_create(uint width, uint height, char const *title)
     window_t *win = NULL;
     video_mode mode = {width, height, WIN_BPP};
 
-    win = sfRenderWindow_create(mode, title, sfClose, NULL);
+    win = sfRenderWindow_create(mode, title, sfClose | sfFullscreen, NULL);
     sfRenderWindow_setFramerateLimit(win, FPS_LIMIT);
     sfRenderWindow_setVerticalSyncEnabled(win, sfTrue);
     set_icon(win, ICON_PATH);
