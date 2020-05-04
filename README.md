@@ -24,10 +24,12 @@ such as .ogg or .wav
 
 Then when you have the game structure, to get the asset just do :
 > MUSIC(*name_of_the_file_without_extension*)
+>
 > FONT(*name_of_the_file_without_extension*)
 
 **Example**
 > sfMusic_play(MUSIC("underwater_cave"))
+>
 > sfText_setFont(FONT("arial"))
 
 
@@ -44,10 +46,15 @@ Add the following information :
 
 **Example**
 > Alfred Virgo
+>
 > 42 55
+>
 > 0 128 32 32
+>
 > Hello, my name is Alfred Virgo
+>
 > I have travelled the seas
+>
 > Just to speak with you
 
 ### How to create Warps
@@ -62,7 +69,9 @@ Add the following information :
 
 **Example**
 > Mount Elfia
+>
 > 12 58 2 2
+>
 > 12 2
 
 This means if the player is in the zone starting from tile 12 58 to tile 14 60,
