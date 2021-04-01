@@ -16,7 +16,7 @@
         ATK,
         DEF,
         XP
-    } stat_field_t;
+    };
 
     typedef struct stats {
         int health;
